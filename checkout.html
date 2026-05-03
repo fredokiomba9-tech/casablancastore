@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Commande · Casablanca Store</title>
+  <meta name="description" content="Finalisez votre commande Casablanca Store en toute sécurité. Paiement 3D Secure, , livraison France · expédition sous 48h." />
+  <link rel="canonical" href="https://casablancastore.fr/checkout.html" />
+  <meta name="robots" content="noindex" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    /* Page checkout volontairement épurée (sans header e-comm classique pour réduire les sorties) */
+    body { background: #fff; }
+
+    .checkout-bar {
+      border-bottom: 1px solid var(--color-line);
+      padding: 16px 0;
+      background: var(--color-bg);
+    }
+    .checkout-bar__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .checkout-bar a.brand-link {
+      font-family: var(--font-display);
+      font-size: var(--fs-xl);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .checkout-bar__secure {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: var(--fs-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-ink-soft);
+    }
+    .checkout-bar__secure svg { stroke: var(--color-success); }
+
+    .stepper {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-5);
+      padding: var(--space-5) 0;
+      border-bottom: 1px solid var(--color-line);
+      font-size: var(--fs-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      flex-wrap: wrap;
+    }
+    .stepper__step {
+      display: flex; align-items: center; gap: 8px;
+    }
+    .stepper__num {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      border: 1px solid var(--color-line-strong);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-family: var(--font-display);
+    }
+    .stepper__step.is-active { color: var(--color-ink); font-weight: 600; }
+    .stepper__step.is-active .stepper__num { background: var(--color-ink); color: var(--color-bg); border-color: var(--color-ink); }
+    .stepper__step.is-done .stepper__num { background: var(--color-success); color: #fff; border-color: var(--color-success); }
+    .stepper__step.is-done::after { content: " "; }
+
+    .checkout-layout {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: clamp(2rem, 4vw, 4rem);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: clamp(1.5rem, 4vw, 3rem) var(--gutter) 5rem;
+      align-items: start;
+    }
+    @media (max-width: 900px) { .checkout-layout { grid-template-columns: 1fr; } }
+
+    .form-section {
+      padding: var(--space-6) 0;
+      border-bottom: 1px solid var(--color-line);
+    }
+    .form-section:first-child { padding-top: 0; }
+    .form-section h2 {
+      font-family: var(--font-display);
+      font-size: var(--fs-2xl);
+      font-weight: 500;
+      margin: 0 0 var(--space-5);
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-3);
+    }
+    .form-section h2 small { font-family: var(--font-body); font-size: var(--fs-xs); color: var(--color-muted); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; }
+
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+    .form-grid .full { grid-column: 1 / -1; }
+    @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } }
+
+    label.field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: var(--fs-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--color-ink);
+    }
+    label.field input,
+    label.field select,
+    label.field textarea {
+      font: inherit;
+      font-size: var(--fs-md);
+      padding: 12px 14px;
+      border: 1px solid var(--color-line-strong);
+      background: #fff;
+      color: var(--color-ink);
+      letter-spacing: 0;
+      text-transform: none;
+      font-weight: 400;
+      width: 100%;
+    }
+    label.field input:focus,
+    label.field select:focus,
+    label.field textarea:focus { outline: 1px solid var(--color-ink); outline-offset: -1px; }
+    label.field .hint { font-size: 11px; color: var(--color-muted); letter-spacing: 0; text-transform: none; font-weight: 400; }
+
+    .check-row {
+      display: flex; align-items: flex-start; gap: 8px;
+      padding: var(--space-3) 0;
+      font-size: var(--fs-sm);
+      letter-spacing: 0; text-transform: none;
+      color: var(--color-ink-soft);
+    }
+    .check-row input { margin-top: 3px; flex: none; }
+
+    .method-list { display: flex; flex-direction: column; gap: 8px; }
+    .method {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: var(--space-3);
+      align-items: center;
+      padding: var(--space-4);
+      border: 1px solid var(--color-line-strong);
+      cursor: pointer;
+      transition: border-color var(--t-fast) var(--ease);
+    }
+    .method:has(input:checked) { border-color: var(--color-ink); background: var(--color-cream); }
+    .method input { width: 18px; height: 18px; accent-color: var(--color-ink); }
+    .method__title { font-weight: 500; font-size: var(--fs-md); margin: 0 0 2px; }
+    .method__sub { font-size: var(--fs-xs); color: var(--color-muted); letter-spacing: 0.04em; }
+    .method__price { font-weight: 600; font-size: var(--fs-md); }
+    .method__price.free { color: var(--color-success); }
+    .method__icon { display: flex; gap: 4px; }
+    .method__icon span { padding: 3px 7px; border: 1px solid var(--color-line-strong); font-size: 9px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+
+    .summary {
+      background: var(--color-cream);
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      position: sticky;
+      top: 1rem;
+    }
+    .summary h3 { font-family: var(--font-display); font-size: var(--fs-2xl); font-weight: 500; margin-bottom: var(--space-4); }
+    .summary-items { border-top: 1px solid var(--color-line-strong); padding-top: var(--space-4); margin-bottom: var(--space-5); max-height: 360px; overflow-y: auto; }
+    .summary-item {
+      display: grid;
+      grid-template-columns: 60px 1fr auto;
+      gap: var(--space-3);
+      align-items: flex-start;
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid var(--color-line);
+      font-size: var(--fs-sm);
+    }
+    .summary-item:last-child { border-bottom: 0; }
+    .summary-item__media { aspect-ratio: 1; background: var(--color-bg); position: relative; overflow: hidden; }
+    .summary-item__media img { width: 100%; height: 100%; object-fit: cover; }
+    .summary-item__qty {
+      position: absolute;
+      top: -6px; right: -6px;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--color-ink); color: var(--color-bg);
+      font-size: 11px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 600;
+    }
+    .summary-item__title { font-family: var(--font-display); font-size: var(--fs-md); font-weight: 500; margin: 0 0 2px; line-height: 1.2; }
+    .summary-item__variant { font-size: 11px; color: var(--color-muted); letter-spacing: 0.08em; text-transform: uppercase; }
+    .summary-item__price { font-weight: 500; font-size: var(--fs-sm); }
+
+    .summary-line { display: flex; justify-content: space-between; padding: 6px 0; font-size: var(--fs-sm); }
+    .summary-line.muted { color: var(--color-ink-soft); }
+    .summary-line.success { color: var(--color-success); font-weight: 500; }
+    .summary-divider { border-top: 1px solid var(--color-line-strong); margin: var(--space-3) 0; }
+    .summary-total { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-display); font-size: var(--fs-2xl); font-weight: 500; margin-bottom: var(--space-3); }
+    .summary-trust {
+      margin-top: var(--space-4);
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--color-line-strong);
+      display: flex; flex-direction: column; gap: 6px;
+      font-size: var(--fs-xs); color: var(--color-ink-soft);
+    }
+    .summary-trust div { display: flex; gap: 8px; align-items: center; }
+
+    .submit-row {
+      padding-top: var(--space-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .submit-row .btn { padding: 18px 32px; font-size: var(--fs-md); }
+    .submit-row p { font-size: var(--fs-xs); color: var(--color-muted); margin: 0; text-align: center; }
+
+    /* Confirmation */
+    .confirmation {
+      max-width: 600px;
+      margin: 4rem auto;
+      padding: 0 var(--gutter);
+      text-align: center;
+    }
+    .confirmation__icon {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: var(--color-success);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-5);
+    }
+    .confirmation h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; margin-bottom: var(--space-3); }
+    .confirmation .order-num {
+      display: inline-block;
+      padding: 8px 16px;
+      background: var(--color-cream);
+      font-family: var(--font-mono);
+      font-size: var(--fs-sm);
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-5);
+    }
+    .demo-note {
+      max-width: 480px;
+      margin: var(--space-7) auto 0;
+      padding: var(--space-4);
+      background: rgba(194,104,73,0.08);
+      border: 1px solid rgba(194,104,73,0.3);
+      font-size: var(--fs-sm);
+      color: var(--color-ink-soft);
+      text-align: left;
+    }
+    .demo-note strong { color: var(--color-terracotta); }
+  </style>
+</head>
+<body>
+
+  <!-- Barre minimaliste checkout (sans nav, gain de friction) -->
+  <header class="checkout-bar">
+    <div class="container">
+      <div class="checkout-bar__inner">
+        <a class="brand-link" href="index.html">Casablanca Store</a>
+        <div class="checkout-bar__secure">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 7V5a5 5 0 0 1 10 0v2M3 7h10v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/></svg>
+          Paiement 100% sécurisé · 3D Secure
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="stepper" aria-label="Étapes de commande">
+    <div class="stepper__step is-done"><span class="stepper__num">✓</span> Panier</div>
+    <div class="stepper__step is-active"><span class="stepper__num">2</span> Coordonnées & livraison</div>
+    <div class="stepper__step"><span class="stepper__num">3</span> Paiement</div>
+    <div class="stepper__step"><span class="stepper__num">4</span> Confirmation</div>
+  </nav>
+
+  <main id="checkout-main">
+    <form id="checkout-form" class="checkout-layout">
+
+      <div>
+        <!-- Email -->
+        <section class="form-section">
+          <h2>Coordonnées <small>· Étape 1/3</small></h2>
+          <label class="field full">E-mail
+            <input type="email" name="email" required autocomplete="email" placeholder="prenom@exemple.fr" />
+            <span class="hint">Pour le suivi de commande et la facture.</span>
+          </label>
+          <div class="check-row" style="margin-top:1rem;">
+            <input type="checkbox" id="newsletter-check" name="newsletter" checked />
+            <label for="newsletter-check">M'inscrire à la liste privée Casablanca Store (10 % sur ma première commande, drops en avant-première).</label>
+          </div>
+        </section>
+
+        <!-- Adresse de livraison -->
+        <section class="form-section">
+          <h2>Adresse de livraison <small>· Étape 2/3</small></h2>
+          <div class="form-grid">
+            <label class="field">Pays
+              <select name="country" required>
+                <option value="FR" selected>France</option>
+                <option value="BE">Belgique</option>
+                <option value="LU">Luxembourg</option>
+                <option value="CH">Suisse</option>
+                <option value="MC">Monaco</option>
+                <option value="DE">Allemagne</option>
+                <option value="IT">Italie</option>
+                <option value="ES">Espagne</option>
+                <option value="GB">Royaume-Uni</option>
+                <option value="US">États-Unis</option>
+                <option value="MA">Maroc</option>
+              </select>
+            </label>
+            <label class="field">Téléphone
+              <input type="tel" name="phone" required autocomplete="tel" placeholder="06 12 34 56 78" />
+              <span class="hint">Pour le transporteur uniquement.</span>
+            </label>
+            <label class="field">Prénom
+              <input type="text" name="firstname" required autocomplete="given-name" />
+            </label>
+            <label class="field">Nom
+              <input type="text" name="lastname" required autocomplete="family-name" />
+            </label>
+            <label class="field full">Adresse
+              <input type="text" name="address" required autocomplete="address-line1" placeholder="14 rue de la Paix" />
+            </label>
+            <label class="field full">Complément (bât., étage, code…) <span class="hint">Optionnel</span>
+              <input type="text" name="address2" autocomplete="address-line2" />
+            </label>
+            <label class="field">Code postal
+              <input type="text" name="zip" required autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{4,6}" />
+            </label>
+            <label class="field">Ville
+              <input type="text" name="city" required autocomplete="address-level2" />
+            </label>
+          </div>
+        </section>
+
+        <!-- Méthode de livraison -->
+        <section class="form-section">
+          <h2>Méthode de livraison</h2>
+          <div class="method-list">
+            <label class="method">
+              <input type="radio" name="shipping" value="colissimo" data-cost="0">
+              <div>
+                <p class="method__title">Colissimo Suivi · 2-3 jours ouvrés · Offerte</p>
+                <p class="method__sub">Livraison à votre porte, signature à la livraison.</p>
+              </div>
+              <span class="method__price free">Offerte</span>
+            </label>
+            <label class="method">
+              <input type="radio" name="shipping" value="chronopost" data-cost="9.90" data-eta="1 jour" />
+              <div>
+                <p class="method__title">Chronopost Express · 1 jour ouvré</p>
+                <p class="method__sub">Avant 14h pour le lendemain (jours ouvrés).</p>
+              </div>
+              <span class="method__price">9,90 €</span>
+            </label>
+            <label class="method">
+              <input type="radio" name="shipping" value="mondial" data-cost="0" data-eta="3-5 jours" />
+              <div>
+                <p class="method__title">Mondial Relay · point relais · 3-5 jours</p>
+                <p class="method__sub">Choisissez votre point relais à l'étape suivante.</p>
+              </div>
+              <span class="method__price free">Offerte</span>
+            </label>
+          </div>
+        </section>
+
+        <!-- Méthode de paiement -->
+        <section class="form-section">
+          <h2>Paiement <small>· Étape 3/3</small></h2>
+          <div class="method-list">
+            <label class="method">
+              <input type="radio" name="payment" value="card" checked />
+              <div>
+                <p class="method__title">Carte bancaire · 3D Secure</p>
+                <p class="method__sub">Visa, Mastercard, American Express. Paiement chiffré via Stripe.</p>
+              </div>
+              <span class="method__icon"><span>VISA</span><span>MC</span><span>AMEX</span></span>
+            </label>
+            <label class="method">
+              <input type="radio" name="payment" value="paypal" />
+              <div>
+                <p class="method__title">PayPal</p>
+                <p class="method__sub">Connectez-vous avec votre compte PayPal pour un paiement express.</p>
+              </div>
+              <span class="method__icon"><span>PAYPAL</span></span>
+            </label>
+            <label class="method">
+              <input type="radio" name="payment" value="apple" />
+              <div>
+                <p class="method__title">Apple Pay</p>
+                <p class="method__sub">Paiement en un clic avec Touch ID ou Face ID.</p>
+              </div>
+              <span class="method__icon"><span>APPLE PAY</span></span>
+            </label>
+          </div>
+
+          <div class="check-row" style="margin-top:1.5rem;">
+            <input type="checkbox" id="cgv-check" name="cgv" required />
+            <label for="cgv-check">J'accepte les <a href="pages/cgv.html" target="_blank" style="text-decoration:underline;">conditions générales de vente</a> et la <a href="pages/confidentialite.html" target="_blank" style="text-decoration:underline;">politique de confidentialité</a>.</label>
+          </div>
+        </section>
+
+        <div class="submit-row">
+          <button type="submit" class="btn btn-primary">Confirmer la commande →</button>
+          <p>En confirmant, vous acceptez d'être débité du montant total. Aucun débit ne sera effectué tant que la commande n'est pas validée.</p>
+          <p><a href="cart.html" style="color:var(--color-ink-soft);text-decoration:underline;">← Retour au panier</a></p>
+        </div>
+      </div>
+
+      <!-- Récap -->
+      <aside class="summary">
+        <h3>Votre commande</h3>
+        <div class="summary-items" id="summary-items"></div>
+
+        <div class="summary-line"><span>Sous-total</span><span data-summary-subtotal>0,00 €</span></div>
+        <div class="summary-line muted"><span>Livraison</span><span id="summary-shipping">Gratuite</span></div>
+        <div class="summary-line muted" id="summary-discount-line" style="display:none;"><span>Remise <span id="summary-promo-code"></span></span><span id="summary-discount"></span></div>
+        <div class="summary-divider"></div>
+        <div class="summary-total"><span>Total <small style="font-family:var(--font-body);font-size:var(--fs-xs);color:var(--color-muted);letter-spacing:.1em;text-transform:uppercase;font-weight:400;">TVA 20% incl.</small></span><span data-summary-total>0,00 €</span></div>
+
+        <div class="summary-trust">
+          <div><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 7l3 3 5-5"/></svg> Authenticité 100% garantie</div>
+          <div><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 9h10l1-4H4L3 3H1"/></svg> Expédition sous 48h ouvrées</div>
+          <div><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 3h8v8H3z"/></svg> Retours 14 jours</div>
+          <div><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 7V5a4 4 0 0 1 8 0v2M3 7h8v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7z"/></svg> Paiement chiffré 3D Secure</div>
+        </div>
+      </aside>
+    </form>
+
+    <!-- Confirmation (initialement masquée) -->
+    <section id="confirmation-view" class="confirmation" style="display:none;">
+      <div class="confirmation__icon">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M10 20l7 7 14-14" />
+        </svg>
+      </div>
+      <p class="eyebrow">Étape 4/4</p>
+      <h1>Merci, <span id="conf-firstname">votre commande</span> est <em class="italic-script">confirmée</em></h1>
+      <p class="order-num" id="conf-order-num">#CASA-XXXXXX</p>
+      <p style="color:var(--color-ink-soft);font-size:var(--fs-lg);max-width:480px;margin:0 auto var(--space-5);">
+        Un e-mail de confirmation a été envoyé à <strong id="conf-email">votre adresse</strong>.
+        Votre commande sera préparée et expédiée sous 24h ouvrées.
+      </p>
+
+      <div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:1.5rem;">
+        <a href="index.html" class="btn btn-secondary">Retour à l'accueil</a>
+        <a href="collections/homme.html" class="btn btn-primary">Continuer mes achats</a>
+      </div>
+
+      <div class="demo-note">
+        <strong>⚠️ Mode démo</strong>
+        <p style="margin-top:8px;">Cette page est un prototype. Aucun paiement réel n'a été effectué et aucun e-mail n'a été envoyé. Sur la version Shopify de production, le checkout sera traité par <strong>Shopify Payments + PayPal</strong> avec 3D Secure et e-mails transactionnels automatiques (Klaviyo).</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" style="margin-top:0;">
+    <div class="container">
+      <div class="footer-bottom" style="border:0;padding:1.5rem 0;justify-content:center;">
+        <span>© 2026 Casablanca Store · Revendeur officiel · France</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ========== Checkout logic ========== */
+    (() => {
+      const CART_KEY = 'cs_cart_v1';
+      const PROMO_KEY = 'cs_promo_v1';
+      const PROMOS = {
+        'MERCI10': { value: 10, label: '-10%' },
+        'VENEZ10': { value: 10, label: '-10%' },
+        'FIDELE15': { value: 15, label: '-15%' },
+        'ANNIVCASA15': { value: 15, label: '-15%' },
+        'REVENEZ20': { value: 20, label: '-20%' }
+      };
+      const fmt = n => new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR'}).format(n);
+      const getCart = () => { try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; } catch { return []; } };
+      const getPromo = () => { try { return JSON.parse(localStorage.getItem(PROMO_KEY)); } catch { return null; } };
+
+      const cart = getCart();
+      if (!cart.length) {
+        // Cart vide → redirect
+        window.location.href = 'cart.html';
+        return;
+      }
+
+      // Render summary
+      const itemsEl = document.getElementById('summary-items');
+      itemsEl.innerHTML = cart.map(item => `
+        <article class="summary-item">
+          <div class="summary-item__media">
+            ${item.image ? `<img src="${item.image}" alt="" />` : ''}
+            <span class="summary-item__qty">${item.qty}</span>
+          </div>
+          <div>
+            <p class="summary-item__title">${item.title}</p>
+            <p class="summary-item__variant">${item.variant || ''}</p>
+          </div>
+          <span class="summary-item__price">${fmt(item.price * item.qty)}</span>
+        </article>
+      `).join('');
+
+      const subtotal = cart.reduce((n, i) => n + i.price * i.qty, 0);
+      let shipping = 0;
+      let discount = 0;
+
+      const promoCode = getPromo();
+      if (promoCode && PROMOS[promoCode]) {
+        discount = subtotal * (PROMOS[promoCode].value / 100);
+        document.getElementById('summary-discount-line').style.display = 'flex';
+        document.getElementById('summary-promo-code').textContent = `(${promoCode})`;
+        document.getElementById('summary-discount').textContent = '−' + fmt(discount);
+      }
+
+      const recalc = () => {
+        const shipMethod = document.querySelector('input[name="shipping"]:checked');
+        shipping = shipMethod ? parseFloat(shipMethod.dataset.cost) : 0;
+        const total = Math.max(0, subtotal - discount + shipping);
+        document.querySelector('[data-summary-subtotal]').textContent = fmt(subtotal);
+        document.getElementById('summary-shipping').textContent = shipping === 0 ? 'Gratuite' : fmt(shipping);
+        document.getElementById('summary-shipping').className = shipping === 0 ? 'success' : '';
+        document.querySelector('[data-summary-total]').textContent = fmt(total);
+      };
+      document.querySelectorAll('input[name="shipping"]').forEach(r => r.addEventListener('change', recalc));
+      recalc();
+
+      // Submit
+      const form = document.getElementById('checkout-form');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const firstname = data.get('firstname') || 'cher client';
+        const email = data.get('email') || '';
+
+        // Confirm view
+        document.getElementById('checkout-form').style.display = 'none';
+        document.getElementById('confirmation-view').style.display = 'block';
+        document.getElementById('conf-firstname').textContent = firstname;
+        document.getElementById('conf-email').textContent = email;
+        document.getElementById('conf-order-num').textContent = '#CASA-' + String(Date.now()).slice(-6);
+        // Stepper update
+        document.querySelectorAll('.stepper__step').forEach((s, i) => {
+          s.classList.remove('is-active');
+          s.classList.add('is-done');
+        });
+        document.querySelector('.stepper__step:last-child').classList.remove('is-done');
+        document.querySelector('.stepper__step:last-child').classList.add('is-active');
+
+        // Reset cart (le client a "commandé")
+        localStorage.removeItem(CART_KEY);
+        localStorage.removeItem(PROMO_KEY);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

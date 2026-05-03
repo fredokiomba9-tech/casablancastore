@@ -1,0 +1,930 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Casablanca Store · Revendeur officiel Casablanca Paris pour Homme</title>
+  <meta name="description" content="Casablanca Store, revendeur officiel français de la maison Casablanca Paris. T-shirts, chemises soie, polos, mailles, ensembles, pantalons et accessoires homme — livraison France · expédition sous 48h." />
+  <meta name="theme-color" content="#efefef" />
+  <link rel="canonical" href="https://casablancastore.fr/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Casablanca Store" />
+  <meta property="og:title" content="Casablanca Store · Revendeur officiel Homme" />
+  <meta property="og:description" content="Pièces officielles Casablanca Paris pour Homme. Livraison France." />
+  <meta property="og:url" content="https://casablancastore.fr/" />
+  <meta property="og:image" content="https://casablancastore.fr/assets/images/og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    /* Banner · style Prestige (minimaliste, MAJUSCULES, accent doré) */
+    .banner {
+      position: relative;
+      min-height: clamp(520px, 80vh, 760px);
+      min-height: clamp(520px, 80dvh, 760px);
+      margin-top: calc(-1 * var(--header-h));
+      padding-top: var(--header-h);
+      color: #fff;
+      background: #000;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .banner__media { position: absolute; inset: 0; z-index: 0; }
+    .banner__media img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+    .banner__media::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.65) 100%);
+    }
+    .banner__inner { position: relative; z-index: 2; max-width: 820px; padding: var(--space-7) var(--gutter); }
+    .banner__eyebrow {
+      color: var(--color-gold);
+      margin-bottom: var(--space-5);
+      letter-spacing: 0.32em;
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .banner h1 {
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6.5vw, 5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-5);
+    }
+    .banner h1 em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--color-gold);
+      text-transform: none;
+      letter-spacing: 0.01em;
+      display: block;
+      font-size: 0.85em;
+      margin-top: 8px;
+    }
+    .banner__lead {
+      color: rgba(255,255,255,0.85);
+      font-size: var(--fs-md);
+      max-width: 540px;
+      margin: 0 auto var(--space-7);
+      line-height: 1.6;
+    }
+    .banner__cta { display: inline-flex; gap: var(--space-3); flex-wrap: wrap; justify-content: center; }
+
+    /* Section title · style Prestige */
+    .section-title { text-align: center; max-width: 760px; margin: 0 auto var(--space-7); }
+    .section-title h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin: var(--space-3) 0;
+    }
+    .section-title h2 em {
+      font-style: italic;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0.01em;
+    }
+    .section-title p { color: var(--color-muted); font-size: var(--fs-md); max-width: 60ch; margin: 0 auto; }
+
+    /* Gammes · mosaïque asymétrique (bento) */
+    .gammes {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-auto-rows: clamp(150px, 15vw, 220px);
+      gap: 10px;
+      grid-auto-flow: dense;
+    }
+    .gamme:nth-child(1) { grid-column: span 4; grid-row: span 2; }
+    .gamme:nth-child(2) { grid-column: span 2; }
+    .gamme:nth-child(3) { grid-column: span 2; }
+    .gamme:nth-child(4) { grid-column: span 3; }
+    .gamme:nth-child(5) { grid-column: span 3; }
+    .gamme:nth-child(6) { grid-column: span 2; }
+    .gamme:nth-child(7) { grid-column: span 2; }
+    .gamme:nth-child(8) { grid-column: span 2; }
+    .gamme {
+      position: relative;
+      overflow: hidden;
+      background: var(--color-cream);
+      isolation: isolate;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding: var(--space-4);
+      text-align: left;
+    }
+    .gamme img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: -2;
+    }
+    .gamme::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.7) 100%);
+      z-index: -1;
+      transition: background 320ms var(--ease);
+    }
+    .gamme:hover img { transform: scale(1.06); }
+    .gamme:hover::after { background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%); }
+    .gamme__inner { color: #fff; width: 100%; }
+    .gamme h3 {
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(1.125rem, 1.8vw, 1.5rem);
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin: 0 0 6px;
+    }
+    .gamme h3 em { font-style: italic; text-transform: none; letter-spacing: 0.02em; }
+    .gamme__count {
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      font-weight: 600;
+    }
+
+    /* Engagements · style Prestige */
+    .engagements { background: #f8f8f8; padding-block: clamp(3rem, 6vw, 5rem); border-block: 1px solid var(--color-line); }
+    .engagements__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(1rem, 2.5vw, 2.5rem);
+    }
+    .engagement { text-align: center; padding: var(--space-4); display: flex; flex-direction: column; align-items: center; }
+    .engagement svg { width: 36px; height: 36px; color: var(--color-ink); margin-bottom: var(--space-4); display: block; }
+    .engagement h3 {
+      font-family: var(--font-display);
+      font-size: var(--fs-md);
+      font-weight: 500;
+      margin-bottom: var(--space-2);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .engagement p { color: var(--color-muted); font-size: var(--fs-sm); margin: 0; line-height: 1.6; }
+    .engagement a {
+      display: inline-block;
+      margin-top: var(--space-3);
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 700;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 2px;
+      color: var(--color-ink);
+    }
+    .engagement a:hover { color: var(--color-gold); }
+
+    /* Bannière promo Beach Club (full-width compact) */
+    .promo-banner {
+      position: relative;
+      min-height: clamp(320px, 45vw, 480px);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      isolation: isolate;
+    }
+    .promo-banner__media { position: absolute; inset: 0; z-index: -2; }
+    .promo-banner__media img { width: 100%; height: 100%; object-fit: cover; }
+    .promo-banner::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background: linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0) 100%);
+    }
+    .promo-banner__inner {
+      max-width: 540px;
+      padding: clamp(2rem, 6vw, 4rem);
+    }
+    .promo-banner .eyebrow { color: var(--color-gold); margin-bottom: var(--space-3); }
+    .promo-banner h2 {
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 3rem);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1.05;
+      margin: 0 0 var(--space-3);
+    }
+    .promo-banner h2 em {
+      font-style: italic;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0.01em;
+      color: var(--color-gold);
+    }
+    .promo-banner p {
+      color: rgba(255,255,255,0.85);
+      font-size: var(--fs-md);
+      line-height: 1.6;
+      margin: 0 0 var(--space-5);
+      max-width: 36ch;
+    }
+    @media (max-width: 600px) {
+      .promo-banner::before { background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%); }
+      .promo-banner__inner { padding: 2rem 1.5rem; }
+    }
+
+    /* Bannière éditoriale split */
+    .editorial-banner {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: stretch;
+      background: var(--color-night);
+      color: #fff;
+      min-height: clamp(420px, 55vw, 620px);
+      margin-block: clamp(2rem, 5vw, 5rem);
+    }
+    .editorial-banner__media { position: relative; overflow: hidden; }
+    .editorial-banner__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1200ms cubic-bezier(0.16,1,0.3,1); }
+    .editorial-banner__media:hover img { transform: scale(1.04); }
+    .editorial-banner__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(2.5rem, 6vw, 5rem);
+      gap: var(--space-4);
+    }
+    .editorial-banner__content .eyebrow { color: var(--color-gold); margin-bottom: var(--space-3); }
+    .editorial-banner__content h2 {
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1.05;
+      margin: 0 0 var(--space-4);
+    }
+    .editorial-banner__content h2 em {
+      font-style: italic;
+      font-weight: 400;
+      text-transform: none;
+      color: var(--color-gold);
+      letter-spacing: 0.01em;
+      display: block;
+      font-size: 0.7em;
+      margin-top: 8px;
+    }
+    .editorial-banner__content p {
+      color: rgba(244,237,227,0.85);
+      font-size: var(--fs-md);
+      line-height: 1.7;
+      max-width: 38ch;
+      margin: 0 0 var(--space-5);
+    }
+    .editorial-banner__content .meta {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(244,237,227,0.55);
+      font-weight: 600;
+      margin-top: var(--space-5);
+    }
+
+    @media (max-width: 800px) {
+      .editorial-banner { grid-template-columns: 1fr; min-height: auto; }
+      .editorial-banner__media { aspect-ratio: 16/11; }
+      .editorial-banner__content { padding: clamp(2rem, 6vw, 3rem); }
+    }
+
+    /* Bannière éditoriale split MIRROR (texte gauche, image droite) */
+    .editorial-banner--mirror {
+      grid-template-columns: 1fr 1.1fr;
+      background: var(--color-cream);
+      color: var(--color-ink);
+    }
+    .editorial-banner--mirror .editorial-banner__media { order: 2; }
+    .editorial-banner--mirror .editorial-banner__content { order: 1; }
+    .editorial-banner--mirror .editorial-banner__content h2 { color: var(--color-ink); }
+    .editorial-banner--mirror .editorial-banner__content h2 em { color: var(--color-terracotta); }
+    .editorial-banner--mirror .editorial-banner__content p { color: var(--color-ink-soft); }
+    .editorial-banner--mirror .editorial-banner__content .meta { color: var(--color-muted); }
+    .editorial-banner--mirror .btn-ghost {
+      background: transparent;
+      color: var(--color-ink);
+      border-color: var(--color-ink);
+    }
+    .editorial-banner--mirror .btn-ghost:hover { background: var(--color-ink); color: #fff; border-color: var(--color-ink); }
+    .editorial-banner--mirror .btn-link { color: var(--color-ink); border-color: var(--color-ink); }
+    .editorial-banner--mirror .btn-link:hover { color: var(--color-terracotta); }
+    @media (max-width: 800px) {
+      .editorial-banner--mirror .editorial-banner__media { order: 1; }
+      .editorial-banner--mirror .editorial-banner__content { order: 2; }
+    }
+
+    /* Bannière Savoir-faire — minimaliste typographique */
+    .savoir-faire {
+      background: #fafafa;
+      padding: clamp(3rem, 7vw, 5.5rem) var(--gutter);
+      text-align: center;
+      border-block: 1px solid var(--color-line);
+      position: relative;
+    }
+    .savoir-faire__inner { max-width: 760px; margin: 0 auto; }
+    .savoir-faire__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-size: 11px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--color-gold);
+      margin-bottom: var(--space-5);
+    }
+    .savoir-faire__eyebrow::before,
+    .savoir-faire__eyebrow::after {
+      content: "";
+      display: inline-block;
+      width: 32px; height: 1px;
+      background: var(--color-gold);
+    }
+    .savoir-faire h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 3.25rem);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin: 0 0 var(--space-3);
+      color: var(--color-ink);
+    }
+    .savoir-faire h2 em {
+      display: block;
+      font-style: italic;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0.01em;
+      color: var(--color-terracotta);
+      font-size: 0.55em;
+      margin-top: 8px;
+    }
+    .savoir-faire__lead {
+      max-width: 56ch;
+      margin: 0 auto var(--space-6);
+      color: var(--color-ink-soft);
+      font-size: var(--fs-md);
+      line-height: 1.7;
+    }
+    .savoir-faire__pillars {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(1rem, 3vw, 2.5rem);
+      flex-wrap: wrap;
+      padding-top: var(--space-5);
+      border-top: 1px solid var(--color-line);
+      max-width: 660px;
+      margin: 0 auto;
+    }
+    .savoir-faire__pillars span {
+      font-family: var(--font-display);
+      font-size: var(--fs-md);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--color-ink);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .savoir-faire__pillars span small {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      display: block;
+      margin-top: 2px;
+    }
+    .savoir-faire__pillars i {
+      font-style: normal;
+      color: var(--color-line-strong);
+      font-size: 1.25rem;
+    }
+
+    /* Politiques */
+    .policies { padding: var(--space-7) 0; border-block: 1px solid var(--color-line); }
+    .policies__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-6); }
+    .policies h4 {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-ink);
+      margin-bottom: var(--space-3);
+    }
+    .policies ul li { margin-bottom: var(--space-2); }
+    .policies a { font-size: var(--fs-sm); color: var(--color-muted); }
+    .policies a:hover { color: var(--color-gold); }
+
+    @media (max-width: 900px) {
+      .gammes { grid-template-columns: repeat(4, 1fr); grid-auto-rows: clamp(130px, 22vw, 180px); }
+      .gamme:nth-child(1) { grid-column: span 4; grid-row: span 2; }
+      .gamme:nth-child(2), .gamme:nth-child(3) { grid-column: span 2; grid-row: span 1; }
+      .gamme:nth-child(4), .gamme:nth-child(5) { grid-column: span 2; grid-row: span 1; }
+      .gamme:nth-child(6), .gamme:nth-child(7), .gamme:nth-child(8) { grid-column: span 4; grid-row: span 1; }
+      .gamme:nth-child(6) { grid-column: span 2; }
+      .gamme:nth-child(7) { grid-column: span 2; }
+      .gamme:nth-child(8) { grid-column: span 4; }
+      .engagements__grid { grid-template-columns: 1fr 1fr; }
+      .policies__grid { grid-template-columns: 1fr 1fr; gap: var(--space-5); }
+    }
+    @media (max-width: 480px) {
+      .gammes { grid-template-columns: 1fr 1fr; grid-auto-rows: clamp(140px, 35vw, 200px); gap: 8px; }
+      .gamme,
+      .gamme:nth-child(1), .gamme:nth-child(2), .gamme:nth-child(3),
+      .gamme:nth-child(4), .gamme:nth-child(5), .gamme:nth-child(6),
+      .gamme:nth-child(7), .gamme:nth-child(8) { grid-column: span 1; grid-row: span 1; }
+      .gamme:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+      .gamme { padding: var(--space-3); }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "Casablanca Store",
+    "url": "https://casablancastore.fr",
+    "description": "Revendeur officiel français de la marque Casablanca Paris — collection Homme.",
+    "address": { "@type": "PostalAddress", "addressCountry": "FR" },
+    "areaServed": "FR",
+    "currenciesAccepted": "EUR",
+    "paymentAccepted": "Carte bancaire, PayPal, Apple Pay",
+    "sameAs": ["https://www.instagram.com/casablancastore", "https://www.tiktok.com/@casablancastore"]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- Annonce -->
+  <div class="announce" aria-label="Annonces">
+    <div class="announce__track">
+      <span>Livraison France offerte (sans minimum)</span>
+      
+      <span>Retours étendus sous 14 jours</span>
+      <span>Revendeur officiel Casablanca Paris</span>
+      <span>Livraison France offerte (sans minimum)</span>
+      
+      <span>Retours étendus sous 14 jours</span>
+      <span>Revendeur officiel Casablanca Paris</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header is-transparent" data-hero-transparent>
+    <div class="container">
+      <div class="header-inner">
+        <button class="menu-toggle icon-btn" aria-label="Ouvrir le menu" aria-controls="mobile-menu">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><line x1="2" y1="6" x2="18" y2="6"/><line x1="2" y1="14" x2="18" y2="14"/></svg>
+        </button>
+
+        <nav class="primary-nav" aria-label="Navigation principale">
+          <a class="nav-link" href="collections/homme.html">Homme</a>
+          <a class="nav-link" href="collections/t-shirts.html">T-Shirts</a>
+          <a class="nav-link" href="collections/chemises.html">Chemises</a>
+          <a class="nav-link" href="collections/ensembles.html">Ensembles</a>
+          <a class="nav-link" href="collections/mailles.html">Maille</a>
+          <a class="nav-link" href="blog/index.html">Journal</a>
+        </nav>
+
+        <a class="brand" href="/" aria-label="Casablanca Store, accueil">
+          Casablanca
+          <span>Store · Revendeur officiel</span>
+        </a>
+
+        <div class="header-actions">
+          <button class="icon-btn" aria-label="Rechercher">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="9" cy="9" r="6"/><line x1="14" y1="14" x2="18" y2="18"/></svg>
+          </button>
+          <a class="icon-btn icon-btn--account" href="pages/account.html" aria-label="Compte">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="10" cy="7" r="3.2"/><path d="M3.5 17c1.6-3.2 4.1-4.5 6.5-4.5s4.9 1.3 6.5 4.5"/></svg>
+          </a>
+          <button class="icon-btn" aria-label="Panier" data-cart-open>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 6h12l-1.2 9.5a1.5 1.5 0 0 1-1.5 1.3H6.7a1.5 1.5 0 0 1-1.5-1.3L4 6z"/><path d="M7 6V5a3 3 0 0 1 6 0v1"/></svg>
+            <span class="cart-count" style="display:none;">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <aside class="mobile-menu" id="mobile-menu">
+    <nav>
+      <a href="collections/homme.html">Homme</a>
+      <a href="collections/t-shirts.html">T-shirts</a>
+      <a href="collections/chemises.html">Chemises</a>
+      <a href="collections/polos.html">Polos</a>
+      <a href="collections/mailles.html">Maille</a>
+      <a href="collections/ensembles.html">Ensembles</a>
+      <a href="collections/pantalons.html">Pantalons</a>
+      <a href="collections/maillots.html">Maillots</a>
+      <a href="collections/accessoires.html">Accessoires</a>
+      <a href="blog/index.html">Journal</a>
+      <a href="pages/about.html">À propos</a>
+    </nav>
+  </aside>
+
+  <!-- ==================== BANNIÈRE ==================== -->
+  <section class="banner">
+    <div class="banner__media">
+      <picture>
+        <source media="(max-width: 640px)" srcset="assets/images/banner-casablanca-paris.avif" type="image/avif" />
+        <img src="assets/images/banner-casablanca-paris.avif"
+             alt="Casablanca Paris · Édition Printemps-Été 2026"
+             loading="eager" fetchpriority="high" decoding="async"
+             width="1600" height="900" />
+      </picture>
+    </div>
+    <div class="banner__inner">
+      <p class="banner__eyebrow">Édition · Printemps-Été 2026</p>
+      <h1>Casablanca Paris<br/><em>pour Homme</em></h1>
+      <p class="banner__lead">
+        Pièces officielles, sélectionnées et expédiées depuis la France.
+        Expédition sous 48h, authenticité garantie.
+      </p>
+      <div class="banner__cta">
+        <a href="collections/homme.html" class="btn btn-ghost">Voir la collection</a>
+        <a href="collections/nouveautes.html" class="btn-link" style="color:#fff;border-color:#fff;">Nouveautés →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BEST-SELLERS ==================== -->
+  <section class="section container">
+    <div class="section-title reveal">
+      <p class="eyebrow">Best-sellers</p>
+      <h2>Les pièces les plus <em>aimées</em>.</h2>
+      <p>Sélection de ce qui part le plus vite chez nous — entre 47 et 112 avis vérifiés à 5 étoiles.</p>
+    </div>
+
+    <div class="product-grid reveal">
+      <article class="product-card" data-product
+               data-id="ex-nd-ms23-jts-001-01-tennis-club-icon-t-shirt"
+               data-title="Tennis Club Icon T-Shirt"
+               data-price="49.00"
+               data-image="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/Casablanca-paris-ms23-jts-001-01-ex-nd-tennis-club-icon-t-shirt-white-front_9279d023-1d28-48de-bb14-8ecd7de84a15.jpg?v=1718200585">
+        <a class="product-card__media" href="products/ex-nd-ms23-jts-001-01-tennis-club-icon-t-shirt.html">
+          <span class="product-card__badge">Best-seller</span>
+          <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/Casablanca-paris-ms23-jts-001-01-ex-nd-tennis-club-icon-t-shirt-white-front_9279d023-1d28-48de-bb14-8ecd7de84a15.jpg?v=1718200585" alt="Tennis Club Icon T-Shirt" loading="lazy" />
+          <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/Casablanca-paris-ms23-jts-001-01-ex-nd-tennis-club-icon-t-shirt-white-back_46e8ef90-d2d6-45de-ac1d-fe6275deff58.jpg?v=1718200585" alt="" loading="lazy" />
+          <div class="product-card__quick"><button class="btn btn-primary" data-add-to-cart>Ajouter — 49.00 €</button></div>
+        </a>
+        <div class="product-card__body">
+          <span class="product-card__cat">T-shirts · Unisexe</span>
+          <h3 class="product-card__title">Tennis Club Icon T-Shirt</h3>
+          <div class="product-card__price"><strong>49,00 €</strong></div>
+          <span class="product-card__sizes" aria-label="Tailles">XS</span>
+        </div>
+      </article>
+      <article class="product-card" data-product
+               data-id="u-mps24-sh-003-05-tennis-club-icon-silk-shirt"
+               data-title="Tennis Club Icon Silk Shirt"
+               data-price="89.00"
+               data-image="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-u-mps24-sh-003-05-tennis-club-icon-silk-shirt-flat-1.jpg?v=1716157434">
+        <a class="product-card__media" href="products/u-mps24-sh-003-05-tennis-club-icon-silk-shirt.html">
+          <span class="product-card__badge">Best-seller</span>
+          <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-u-mps24-sh-003-05-tennis-club-icon-silk-shirt-flat-1.jpg?v=1716157434" alt="Tennis Club Icon Silk Shirt" loading="lazy" />
+          <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-u-mps24-sh-003-05-tennis-club-icon-silk-shirt-img01.jpg?v=1716157434" alt="" loading="lazy" />
+          <div class="product-card__quick"><button class="btn btn-primary" data-add-to-cart>Ajouter — 89.00 €</button></div>
+        </a>
+        <div class="product-card__body">
+          <span class="product-card__cat">Chemises · Unisexe</span>
+          <h3 class="product-card__title">Tennis Club Icon Silk Shirt</h3>
+          <div class="product-card__price"><strong>89,00 €</strong></div>
+          <span class="product-card__sizes" aria-label="Tailles">XS</span>
+        </div>
+      </article>
+      <article class="product-card" data-product
+               data-id="u-mps24-jts-001-01-tennis-club-icon-t-shirt"
+               data-title="Tennis Club Icon T-Shirt"
+               data-price="49.00"
+               data-image="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-u-mps24-jts-001-01-tennis-club-icon-t-shirt-flat-1_e5aaacbc-12e3-4840-b777-d2729e1d3a8b.jpg?v=1718209407">
+        <a class="product-card__media" href="products/u-mps24-jts-001-01-tennis-club-icon-t-shirt.html">
+          <span class="product-card__badge">Best-seller</span>
+          <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-u-mps24-jts-001-01-tennis-club-icon-t-shirt-flat-1_e5aaacbc-12e3-4840-b777-d2729e1d3a8b.jpg?v=1718209407" alt="Tennis Club Icon T-Shirt" loading="lazy" />
+          <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/M-JTS-001-01_185d1de8-00eb-4b22-940b-677a1565d992.jpg?v=1718209407" alt="" loading="lazy" />
+          <div class="product-card__quick"><button class="btn btn-primary" data-add-to-cart>Ajouter — 49.00 €</button></div>
+        </a>
+        <div class="product-card__body">
+          <span class="product-card__cat">T-shirts · Unisexe</span>
+          <h3 class="product-card__title">Tennis Club Icon T-Shirt</h3>
+          <div class="product-card__price"><strong>49,00 €</strong></div>
+          <span class="product-card__sizes" aria-label="Tailles">XS</span>
+        </div>
+      </article>
+      <article class="product-card" data-product
+               data-id="mps24-jts-001-04-tennis-club-icon-t-shirt"
+               data-title="Tennis Club Icon T-Shirt"
+               data-price="49.00"
+               data-image="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-mps24-jts-001-04-tennis-club-icon-t-shirt-flat-1_a89107fa-1583-46de-9abd-12c620f9d0c0.jpg?v=1718209366">
+        <a class="product-card__media" href="products/mps24-jts-001-04-tennis-club-icon-t-shirt.html">
+          <span class="product-card__badge">Best-seller</span>
+          <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-mps24-jts-001-04-tennis-club-icon-t-shirt-flat-1_a89107fa-1583-46de-9abd-12c620f9d0c0.jpg?v=1718209366" alt="Tennis Club Icon T-Shirt" loading="lazy" />
+          <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-mps24-jts-001-04-tennis-club-icon-t-shirt_b43d9398-3315-4652-996c-f88d44d8b85e.jpg?v=1718209366" alt="" loading="lazy" />
+          <div class="product-card__quick"><button class="btn btn-primary" data-add-to-cart>Ajouter — 49.00 €</button></div>
+        </a>
+        <div class="product-card__body">
+          <span class="product-card__cat">T-shirts · Unisexe</span>
+          <h3 class="product-card__title">Tennis Club Icon T-Shirt</h3>
+          <div class="product-card__price"><strong>49,00 €</strong></div>
+          <span class="product-card__sizes" aria-label="Tailles">XS</span>
+        </div>
+      </article>
+    </div>
+
+    <div style="text-align:center;margin-top:var(--space-6);">
+      <a href="collections/best-sellers.html" class="btn btn-secondary">Tous les best-sellers</a>
+    </div>
+  </section>
+
+  <!-- ==================== NOS GAMMES ==================== -->
+  <section class="section container">
+    <div class="section-title reveal">
+      <p class="eyebrow">Nos gammes</p>
+      <h2>Acheter par <em>catégorie</em>.</h2>
+      <p>L'intégralité du vestiaire homme Casablanca Paris, organisé par gamme — du t-shirt iconique à l'ensemble en soie.</p>
+    </div>
+
+    <div class="gammes reveal">
+      <a class="gamme" href="collections/t-shirts.html">
+        <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-mps24-jts-001-12-tennis-club-icon-t-shirt-img07_c41cf344-c1bf-4390-a426-266c25caa7de.jpg" alt="T-shirts Casablanca" loading="lazy" />
+        <div class="gamme__inner"><h3>T-shirts</h3><span class="gamme__count">55 pièces</span></div>
+      </a>
+      <a class="gamme" href="collections/chemises.html">
+        <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-u-mps24-sh-003-05-tennis-club-icon-silk-shirt-img07.jpg" alt="Chemises Casablanca" loading="lazy" />
+        <div class="gamme__inner"><h3>Chemises</h3><span class="gamme__count">82 pièces</span></div>
+      </a>
+      <a class="gamme" href="collections/polos.html">
+        <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-ms24-kw-620-01-graphic-panelled-polo-shirt-img07.jpg" alt="Polos Casablanca" loading="lazy" />
+        <div class="gamme__inner"><h3>Polos</h3><span class="gamme__count">23 pièces</span></div>
+      </a>
+      <a class="gamme" href="collections/mailles.html">
+        <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-ms24-kw-659-01-crochet-tennis-shirt-img07.jpg" alt="Maille Casablanca" loading="lazy" />
+        <div class="gamme__inner"><h3><em>Maille</em></h3><span class="gamme__count">50 pièces</span></div>
+      </a>
+      <a class="gamme" href="collections/ensembles.html">
+        <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-mps24-jk-033-01-equipement-sportif-track-jacket-img07_aeb3f0dd-e0bf-4d84-82d8-984568d8fbfa.jpg" alt="Ensembles Casablanca" loading="lazy" />
+        <div class="gamme__inner"><h3>Ensembles</h3><span class="gamme__count">31 pièces</span></div>
+      </a>
+      <a class="gamme" href="collections/pantalons.html">
+        <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-mf23-tr-012-13-tennis-club-icon-silk-shorts-img07_a89cbe5b-edc9-4203-a006-1a109afaf1c6.jpg" alt="Pantalons Casablanca" loading="lazy" />
+        <div class="gamme__inner"><h3>Pantalons</h3><span class="gamme__count">74 pièces</span></div>
+      </a>
+      <a class="gamme" href="collections/maillots.html">
+        <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/ex-nd-ms23-tr-032-03-sport-grid-swim-trunks-flat-1_3519ad48-f733-447e-a95b-412b7f2af2da.jpg?v=1718206913" alt="Maillots Casablanca" loading="lazy" />
+        <div class="gamme__inner"><h3>Maillots</h3><span class="gamme__count">11 pièces</span></div>
+      </a>
+      <a class="gamme" href="collections/accessoires.html">
+        <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/HAT_002_CASA_16375-retouched_512329b9-8415-49c7-9633-e84d51d9d48c.png?v=1718205969" alt="Accessoires Casablanca" loading="lazy" />
+        <div class="gamme__inner"><h3>Accessoires</h3><span class="gamme__count">55 pièces</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ==================== BANNIÈRE ÉDITORIALE ==================== -->
+  <section class="editorial-banner reveal">
+    <a class="editorial-banner__media" href="collections/best-sellers.html" aria-label="Découvrir Tennis Club Icon">
+      <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-ex-nd-ms23-sh-003-01-tennis-club-icon-silk-shirt-model-4_a484056d-952e-4724-9d40-307d2450b19a.jpg" alt="Tennis Club Icon · Casablanca Paris" loading="lazy" />
+    </a>
+    <div class="editorial-banner__content">
+      <p class="eyebrow">Édition signature</p>
+      <h2>Tennis Club Icon<em>l'écusson de la maison</em></h2>
+      <p>L'écusson Tennis Club, signature historique de Charaf Tajer depuis 2018. Brodé sur les chemises en soie, les sweats et les casquettes — la pièce qui dit « Casablanca » sans avoir besoin de la nommer.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="collections/best-sellers.html" class="btn btn-ghost">Découvrir la collection</a>
+        <a href="blog/histoire-marque-casablanca.html" class="btn-link" style="color:#fff;border-color:rgba(255,255,255,0.5);">Lire l'histoire →</a>
+      </div>
+      <p class="meta">23 pièces signature · stock limité</p>
+    </div>
+  </section>
+
+  <!-- ==================== BANNIÈRE SAVOIR-FAIRE (minimaliste) ==================== -->
+  <section class="savoir-faire reveal">
+    <div class="savoir-faire__inner">
+      <p class="savoir-faire__eyebrow">Savoir-faire</p>
+      <h2>Made in Italy & Portugal<em>depuis 2018</em></h2>
+      <p class="savoir-faire__lead">Toutes les pièces Casablanca Paris sont confectionnées dans des ateliers familiaux européens — soie de Côme, coton portugais, mailles italiennes, finitions main. Le luxe, à la française, dans la durée.</p>
+
+      <div class="savoir-faire__pillars">
+        <span>Italie<small>Soie · Maille · Tailoring</small></span>
+        <i>·</i>
+        <span>Portugal<small>Jersey · Coton · Knit</small></span>
+        <i>·</i>
+        <span>France<small>Sélection · Expédition</small></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== JOURNAL ==================== -->
+  <section class="section container">
+    <div class="section-title reveal">
+      <p class="eyebrow">Le journal</p>
+      <h2>Lectures & <em>savoir-faire</em>.</h2>
+      <p>Guides de style, histoire de la maison et conseils d'entretien — pour porter vos pièces aussi bien qu'on les choisit.</p>
+    </div>
+
+    <div class="blog-grid reveal">
+      <a class="blog-card" href="blog/comment-porter-chemise-casablanca.html">
+        <div class="blog-card__media">
+          <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-ex-nd-ms23-sh-003-01-tennis-club-icon-silk-shirt-model-1_b0c728aa-b2b6-43d6-bd1a-ef0945b781f2.jpg" alt="Comment porter une chemise Casablanca — looks de saison" loading="lazy" />
+        </div>
+        <span class="blog-card__cat">Style · 6 min</span>
+        <h3>Comment porter une chemise Casablanca — 5 looks pour le printemps</h3>
+        <p>Du brunch dominical aux soirées de gala : nos cinq combinaisons de saison.</p>
+        <span class="blog-card__meta">12 mai 2026</span>
+      </a>
+
+      <a class="blog-card" href="blog/guide-tailles-casablanca.html">
+        <div class="blog-card__media">
+          <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/AW21-PREMIERE-MODEL-_0007_UntitledSession6437_62daa853-76a7-4b59-b86f-70b03126f8d9.jpg" alt="Guide des tailles Casablanca — coupes & mensurations" loading="lazy" />
+        </div>
+        <span class="blog-card__cat">Guide · 4 min</span>
+        <h3>Guide des tailles Casablanca — bien choisir sa chemise et son polo</h3>
+        <p>Tableau de mensurations, coupes et conseils pour ne pas se tromper.</p>
+        <span class="blog-card__meta">28 avril 2026</span>
+      </a>
+
+      <a class="blog-card" href="blog/histoire-marque-casablanca.html">
+        <div class="blog-card__media">
+          <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/AW23Look43_5771ce82-d914-44c2-b728-f12dad3387d7.jpg" alt="Histoire de Casablanca Paris — la maison Charaf Tajer" loading="lazy" />
+        </div>
+        <span class="blog-card__cat">Maison · 7 min</span>
+        <h3>L'histoire de Casablanca — de Charaf Tajer à la maison du tennis-club</h3>
+        <p>Origines, vision créative et ascension fulgurante d'une marque culte.</p>
+        <span class="blog-card__meta">15 avril 2026</span>
+      </a>
+    </div>
+
+    <div style="text-align:center;margin-top:var(--space-6);">
+      <a href="blog/index.html" class="btn btn-secondary">Tous les articles</a>
+    </div>
+  </section>
+
+  <!-- ==================== ENGAGEMENTS ==================== -->
+  <section class="engagements">
+    <div class="container">
+      <div class="section-title reveal" style="margin-bottom:var(--space-6);">
+        <p class="eyebrow">Nos engagements</p>
+        <h2>Acheter ici en <em>toute confiance</em>.</h2>
+      </div>
+      <div class="engagements__grid reveal">
+        <div class="engagement">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 7h11v10H3z"/>
+            <path d="M14 10h4l3 3v4h-7"/>
+            <circle cx="7" cy="18" r="1.6"/>
+            <circle cx="17" cy="18" r="1.6"/>
+          </svg>
+          <h3>Expédition sous 48h</h3>
+          <p>Expédition depuis la France, offerte sans minimum.</p>
+          <a href="pages/livraison.html">En savoir plus</a>
+        </div>
+        <div class="engagement">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3l8 3v6c0 4.5-3.4 8.4-8 9.5-4.6-1.1-8-5-8-9.5V6l8-3z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+          <h3>Authenticité garantie</h3>
+          <p>Revendeur officiel agréé, hangtag et certificat fournis.</p>
+          <a href="pages/authenticite.html">Notre engagement</a>
+        </div>
+        <div class="engagement">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 12a9 9 0 0 1 15-6.5L21 8"/>
+            <path d="M21 3v5h-5"/>
+            <path d="M21 12a9 9 0 0 1-15 6.5L3 16"/>
+            <path d="M3 21v-5h5"/>
+          </svg>
+          <h3>Retours 14 jours</h3>
+          <p>Échange gratuit en France, étiquette pré-payée fournie.</p>
+          <a href="pages/retours.html">Conditions</a>
+        </div>
+        <div class="engagement">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 12a8 8 0 0 1 16 0v4"/>
+            <path d="M4 14v2a2 2 0 0 0 2 2h1v-6H6a2 2 0 0 0-2 2z"/>
+            <path d="M20 14v2a2 2 0 0 1-2 2h-1v-6h1a2 2 0 0 1 2 2z"/>
+            <path d="M18 18v1a2 2 0 0 1-2 2h-3"/>
+          </svg>
+          <h3>Service client 6j/7</h3>
+          <p>Réponse en moins de 4h ouvrées, en français.</p>
+          <a href="pages/contact.html">Nous écrire</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== NEWSLETTER ==================== -->
+  <section class="section newsletter">
+    <div class="container-narrow newsletter__inner reveal">
+      <p class="eyebrow">Liste privée</p>
+      <h2>Premiers à savoir, <em class="italic-script">premiers servis</em>.</h2>
+      <p>10 % sur votre première commande, accès aux drops avant tout le monde.</p>
+      <form class="newsletter__form" data-newsletter aria-label="Inscription newsletter">
+        <input type="email" required placeholder="Votre adresse e-mail" autocomplete="email" />
+        <button type="submit">S'inscrire →</button>
+      </form>
+      <p style="font-size:.75rem;color:var(--color-muted);margin-top:1.5rem;">
+        En vous inscrivant, vous acceptez de recevoir nos communications. Désinscription en un clic.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Casablanca Store</h3>
+          <p>Revendeur officiel français de la maison Casablanca Paris. Pièces homme expédiées de France, expédition sous 48h, retours 14 jours.</p>
+          <div class="socials">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 3v3.5a3.5 3.5 0 0 0 3.5 3.5V13a6.5 6.5 0 0 1-4-1.4V16a5 5 0 1 1-5-5v3.5a1.5 1.5 0 1 0 1.5 1.5V3z"/></svg></a>
+            <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M11 8c2.5 0 4 1.6 4 4s-1.5 4-3.5 4c-.7 0-1.4-.4-1.6-.9L9 19"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col"><h5>Acheter</h5><ul>
+          <li><a href="collections/homme.html">Tout l'homme</a></li>
+          <li><a href="collections/nouveautes.html">Nouveautés</a></li>
+          <li><a href="collections/best-sellers.html">Best-sellers</a></li>
+          <li><a href="collections/t-shirts.html">T-shirts</a></li>
+          <li><a href="collections/chemises.html">Chemises</a></li>
+          <li><a href="collections/ensembles.html">Ensembles</a></li>
+        </ul></div>
+        <div class="footer-col"><h5>Aide</h5><ul>
+          <li><a href="pages/livraison.html">Livraison</a></li>
+          <li><a href="pages/retours.html">Retours</a></li>
+          <li><a href="pages/guide-tailles.html">Guide des tailles</a></li>
+          <li><a href="pages/contact.html">Contact</a></li>
+          <li><a href="pages/faq.html">FAQ</a></li>
+        </ul></div>
+        <div class="footer-col"><h5>Maison</h5><ul>
+          <li><a href="pages/about.html">À propos</a></li>
+          <li><a href="blog/index.html">Journal</a></li>
+          <li><a href="pages/authenticite.html">Authenticité</a></li>
+        </ul></div>
+        <div class="footer-col"><h5>Légal</h5><ul>
+          <li><a href="pages/cgv.html">CGV</a></li>
+          <li><a href="pages/mentions-legales.html">Mentions légales</a></li>
+          <li><a href="pages/confidentialite.html">Confidentialité</a></li>
+        </ul></div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Casablanca Store · Revendeur officiel · France</span>
+        <div class="pay">
+          <span>Visa</span><span>Mastercard</span><span>Amex</span><span>PayPal</span><span>Apple Pay</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart drawer -->
+  <div class="drawer-overlay" data-cart-close></div>
+  <aside class="cart-drawer" aria-label="Panier">
+    <div class="cart-drawer__head">
+      <h3>Votre panier</h3>
+      <button class="icon-btn" data-cart-close aria-label="Fermer le panier">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><line x1="4" y1="4" x2="16" y2="16"/><line x1="16" y1="4" x2="4" y2="16"/></svg>
+      </button>
+    </div>
+    <div class="cart-drawer__body" data-cart-body></div>
+    <div class="cart-drawer__foot">
+      <div class="cart-drawer__total"><span>Sous-total</span><span data-cart-total>0,00 €</span></div>
+      <p style="font-size:.75rem;color:var(--color-muted);margin:0 0 12px;">Livraison & taxes calculées à la commande.</p>
+      <button class="btn btn-primary btn-block" data-checkout disabled>Passer commande →</button>
+    </div>
+  </aside>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

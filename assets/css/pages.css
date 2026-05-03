@@ -1,0 +1,165 @@
+/* Pages institutionnelles — styles partagés */
+.page-hero {
+  padding: calc(var(--header-h) + 4rem) 0 3rem;
+  text-align: center;
+  background: var(--color-bg);
+}
+.page-hero .breadcrumb {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: var(--space-4);
+}
+.page-hero h1 {
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-weight: 400;
+  margin-bottom: var(--space-3);
+}
+.page-hero p {
+  color: var(--color-ink-soft);
+  max-width: 60ch;
+  margin: 0 auto;
+  font-size: var(--fs-lg);
+}
+
+.page-content {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  padding-bottom: 5rem;
+}
+.page-content p { margin-bottom: 1.5em; color: var(--color-ink); }
+.page-content h2 {
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  font-weight: 400;
+  margin: 2.5em 0 0.6em;
+}
+.page-content h3 {
+  font-size: var(--fs-xl);
+  font-weight: 500;
+  margin: 2em 0 0.4em;
+}
+.page-content a {
+  color: var(--color-terracotta);
+  text-decoration: underline;
+}
+.page-content ul, .page-content ol { padding-left: 1.5rem; margin-bottom: 1.5em; }
+.page-content li { margin-bottom: 0.4em; }
+.page-content strong { font-weight: 600; }
+.page-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2em 0;
+  font-size: var(--fs-sm);
+  background: var(--color-surface);
+}
+.page-content th, .page-content td {
+  padding: 12px 14px;
+  border: 1px solid var(--color-line);
+  text-align: left;
+}
+.page-content th {
+  background: var(--color-cream);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+}
+.page-content blockquote {
+  border-left: 3px solid var(--color-terracotta);
+  padding: 0.5em 0 0.5em 1.5em;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-style: italic;
+  margin: 2em 0;
+}
+
+.callout-box {
+  background: var(--color-cream);
+  padding: var(--space-5);
+  border-left: 4px solid var(--color-terracotta);
+  margin: 2em 0;
+}
+.callout-box strong { display: block; margin-bottom: 4px; }
+.callout-box p { margin: 0; }
+
+/* Contact form */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-7);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-bottom: 5rem;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  font: inherit;
+  font-size: var(--fs-md);
+  padding: 12px 14px;
+  border: 1px solid var(--color-line-strong);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 400;
+}
+.contact-form textarea { resize: vertical; min-height: 140px; }
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus { outline: 1px solid var(--color-ink); outline-offset: -1px; }
+
+.contact-info { background: var(--color-cream); padding: var(--space-7); }
+.contact-info h3 { font-size: var(--fs-xl); margin-bottom: var(--space-3); }
+.contact-info dl { margin: 0; }
+.contact-info dt {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-top: var(--space-4);
+}
+.contact-info dd { margin: 4px 0 0; color: var(--color-ink-soft); }
+.contact-info dd a { color: var(--color-ink); }
+
+@media (max-width: 800px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+/* Big-FAQ accordion */
+.faq-block details {
+  border-bottom: 1px solid var(--color-line);
+}
+.faq-block summary {
+  cursor: pointer;
+  list-style: none;
+  padding: var(--space-4) 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.faq-block summary::-webkit-details-marker { display: none; }
+.faq-block summary::after { content: "+"; font-size: 1.5rem; font-weight: 300; }
+.faq-block details[open] summary::after { content: "−"; }
+.faq-block details > div { padding: 0 0 var(--space-5); color: var(--color-ink-soft); line-height: 1.75; }

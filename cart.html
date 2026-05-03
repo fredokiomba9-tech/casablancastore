@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Votre panier · Casablanca Store</title>
+  <meta name="description" content="Votre panier Casablanca Store. Livraison France offerte (sans minimum), Paiement sécurisé." />
+  <link rel="canonical" href="https://casablancastore.fr/cart.html" />
+  <meta name="robots" content="noindex" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    .cart-page { padding: calc(var(--header-h) + 2rem) 0 4rem; }
+    .cart-page__head { text-align: center; margin-bottom: var(--space-7); }
+    .cart-page__head h1 { font-size: clamp(2.25rem, 5vw, 4rem); font-weight: 400; margin-bottom: var(--space-3); }
+    .cart-page__head p { color: var(--color-ink-soft); }
+
+    .cart-layout {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: clamp(2rem, 4vw, 4rem);
+      align-items: start;
+    }
+    @media (max-width: 900px) { .cart-layout { grid-template-columns: 1fr; } }
+
+    .cart-list { border-top: 1px solid var(--color-line); }
+    .cart-item {
+      display: grid;
+      grid-template-columns: 120px 1fr auto;
+      gap: var(--space-5);
+      padding: var(--space-5) 0;
+      border-bottom: 1px solid var(--color-line);
+      align-items: flex-start;
+    }
+    .cart-item__media { aspect-ratio: 4/5; background: var(--color-cream); overflow: hidden; }
+    .cart-item__media img { width: 100%; height: 100%; object-fit: cover; }
+    .cart-item__title { font-family: var(--font-display); font-size: var(--fs-xl); font-weight: 500; margin: 0 0 4px; }
+    .cart-item__variant {
+      font-size: var(--fs-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: var(--space-3);
+    }
+    .cart-item__qty {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--color-ink);
+    }
+    .cart-item__qty button { width: 32px; height: 32px; font-size: 1rem; }
+    .cart-item__qty button:hover { background: var(--color-cream); }
+    .cart-item__qty span { display: inline-flex; align-items: center; justify-content: center; min-width: 32px; font-weight: 500; }
+    .cart-item__price-line {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      align-items: flex-end;
+    }
+    .cart-item__price { font-size: var(--fs-lg); font-weight: 500; }
+    .cart-item__rm {
+      font-size: var(--fs-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      text-decoration: underline;
+    }
+    .cart-item__rm:hover { color: var(--color-error); }
+
+    .cart-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-5) 0;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+    }
+    .cart-actions a {
+      font-size: var(--fs-sm);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 2px;
+    }
+
+    .cart-summary {
+      background: var(--color-cream);
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      position: sticky;
+      top: calc(var(--header-h) + 2rem);
+    }
+    .cart-summary h2 {
+      font-family: var(--font-display);
+      font-size: var(--fs-2xl);
+      font-weight: 500;
+      margin-bottom: var(--space-5);
+    }
+    .cart-summary__line {
+      display: flex;
+      justify-content: space-between;
+      padding: var(--space-3) 0;
+      font-size: var(--fs-base);
+    }
+    .cart-summary__line.muted { color: var(--color-ink-soft); font-size: var(--fs-sm); }
+    .cart-summary__divider { border-top: 1px solid var(--color-line-strong); margin: var(--space-3) 0; }
+    .cart-summary__total {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-family: var(--font-display);
+      font-size: var(--fs-2xl);
+      font-weight: 500;
+      margin-bottom: var(--space-3);
+    }
+    .promo-row {
+      display: flex;
+      gap: 8px;
+      padding: var(--space-4) 0;
+      border-top: 1px dashed var(--color-line-strong);
+      border-bottom: 1px dashed var(--color-line-strong);
+      margin-bottom: var(--space-4);
+    }
+    .promo-row input {
+      flex: 1;
+      padding: 12px 14px;
+      border: 1px solid var(--color-line-strong);
+      background: #fff;
+      font: inherit;
+      font-size: var(--fs-sm);
+    }
+    .promo-row button {
+      padding: 12px 18px;
+      font-size: var(--fs-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      border: 1px solid var(--color-ink);
+      background: transparent;
+    }
+    .promo-row button:hover { background: var(--color-ink); color: var(--color-bg); }
+    .promo-msg {
+      font-size: var(--fs-xs);
+      margin: -8px 0 var(--space-4);
+      padding: 8px 12px;
+    }
+    .promo-msg.success { background: rgba(79,122,74,.12); color: var(--color-success); border: 1px solid rgba(79,122,74,.3); }
+    .promo-msg.error { background: rgba(181,74,58,.08); color: var(--color-error); border: 1px solid rgba(181,74,58,.3); }
+
+    .cart-summary__pay {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-2);
+      margin-top: var(--space-4);
+      flex-wrap: wrap;
+    }
+    .cart-summary__pay span {
+      padding: 4px 8px;
+      border: 1px solid var(--color-line-strong);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--color-ink-soft);
+    }
+    .cart-trust {
+      margin-top: var(--space-5);
+      padding-top: var(--space-5);
+      border-top: 1px solid var(--color-line-strong);
+    }
+    .cart-trust div {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-size: var(--fs-xs);
+      color: var(--color-ink-soft);
+      margin-bottom: 6px;
+    }
+    .cart-trust svg { flex: none; width: 14px; height: 14px; stroke: var(--color-ink); }
+
+    .empty-cart {
+      text-align: center;
+      padding: var(--space-9) var(--gutter);
+      max-width: 460px;
+      margin: 0 auto;
+    }
+    .empty-cart svg { width: 60px; height: 60px; stroke: var(--color-line-strong); margin-bottom: var(--space-5); }
+    .empty-cart h2 { font-size: var(--fs-3xl); font-weight: 400; margin-bottom: var(--space-3); }
+    .empty-cart p { color: var(--color-ink-soft); margin-bottom: var(--space-6); }
+
+    @media (max-width: 600px) {
+      .cart-item { grid-template-columns: 90px 1fr; gap: var(--space-3); }
+      .cart-item__price-line { grid-column: 2; align-items: flex-start; text-align: left; flex-direction: row; justify-content: space-between; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="announce"><div class="announce__track">
+    <span>Livraison gratuite sans minimum</span><span>Retours 14 jours</span><span>Authenticité garantie</span>
+    <span>Livraison gratuite sans minimum</span><span>Retours 14 jours</span><span>Authenticité garantie</span>
+  </div></div>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <button class="menu-toggle icon-btn" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><line x1="2" y1="6" x2="18" y2="6"/><line x1="2" y1="14" x2="18" y2="14"/></svg></button>
+        <nav class="primary-nav"><a class="nav-link" href="collections/homme.html">Homme</a><a class="nav-link" href="collections/t-shirts.html">T-shirts</a><a class="nav-link" href="collections/chemises.html">Chemises</a><a class="nav-link" href="collections/ensembles.html">Ensembles</a><a class="nav-link" href="collections/mailles.html">Maille</a><a class="nav-link" href="blog/index.html">Journal</a></nav>
+        <a class="brand" href="index.html">Casablanca<span>Store · Revendeur officiel</span></a>
+        <div class="header-actions">
+          <button class="icon-btn" aria-label="Rechercher"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="9" cy="9" r="6"/><line x1="14" y1="14" x2="18" y2="18"/></svg></button>
+          <button class="icon-btn" aria-label="Panier" data-cart-open><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 6h12l-1.2 9.5a1.5 1.5 0 0 1-1.5 1.3H6.7a1.5 1.5 0 0 1-1.5-1.3L4 6z"/><path d="M7 6V5a3 3 0 0 1 6 0v1"/></svg><span class="cart-count" style="display:none;">0</span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <aside class="mobile-menu" id="mobile-menu"><nav><a href="collections/homme.html">Homme</a><a href="blog/index.html">Journal</a></nav></aside>
+
+  <main class="container cart-page">
+    <div class="cart-page__head">
+      <p class="eyebrow">Étape 1/3</p>
+      <h1>Votre <em class="italic-script">panier</em></h1>
+      <p id="cart-page-summary">Vérifiez vos articles avant de passer commande.</p>
+    </div>
+
+    <!-- Empty state -->
+    <div id="empty-state" class="empty-cart" style="display:none;">
+      <svg viewBox="0 0 60 60" fill="none" stroke-width="1.4">
+        <path d="M14 18h32l-3 26a4 4 0 0 1-4 3.5H21a4 4 0 0 1-4-3.5L14 18z"/>
+        <path d="M22 18v-3a8 8 0 0 1 16 0v3"/>
+      </svg>
+      <h2>Votre panier est vide</h2>
+      <p>Pas encore de pièce ajoutée. Découvrez la collection homme officielle Casablanca Paris — pièces signature, livraison France · expédition sous 48h.</p>
+      <a href="collections/homme.html" class="btn btn-primary">Découvrir la collection</a>
+    </div>
+
+    <!-- Cart layout -->
+    <div id="cart-layout" class="cart-layout" style="display:none;">
+
+      <div>
+        <div id="cart-list" class="cart-list" data-cart-page-list></div>
+
+        <div class="cart-actions">
+          <a href="collections/homme.html">← Continuer mes achats</a>
+          <a href="#" id="cart-clear" style="color:var(--color-error);">Vider le panier</a>
+        </div>
+      </div>
+
+      <aside class="cart-summary">
+        <h2>Récapitulatif</h2>
+
+        <div class="cart-summary__line">
+          <span>Sous-total</span>
+          <span data-cart-page-subtotal>0,00 €</span>
+        </div>
+        <div class="cart-summary__line muted">
+          <span>Livraison</span>
+          <span id="shipping-line">Calculée à l'étape suivante</span>
+        </div>
+        <div class="cart-summary__line muted" id="discount-line" style="display:none;">
+          <span>Remise <span id="promo-applied"></span></span>
+          <span id="discount-amount"></span>
+        </div>
+
+        <div class="cart-summary__divider"></div>
+
+        <div class="cart-summary__total">
+          <span>Total <span style="font-family:var(--font-body);font-size:var(--fs-xs);font-weight:400;color:var(--color-muted);letter-spacing:.1em;text-transform:uppercase;">TVA incl.</span></span>
+          <span data-cart-page-total>0,00 €</span>
+        </div>
+        <div class="promo-row">
+          <input type="text" id="promo-input" placeholder="Code promo" autocomplete="off" />
+          <button id="promo-apply" type="button">Appliquer</button>
+        </div>
+        <div id="promo-msg" class="promo-msg" style="display:none;"></div>
+
+        <a href="checkout.html" class="btn btn-primary btn-block" id="checkout-btn">Passer commande →</a>
+
+        <div class="cart-summary__pay">
+          <span>Visa</span><span>Mastercard</span><span>Amex</span><span>PayPal</span><span>Apple Pay</span>
+        </div>
+
+        <div class="cart-trust">
+          <div><svg viewBox="0 0 14 14" fill="none" stroke-width="1.4"><path d="M2 7l3 3 7-7"/></svg> Authenticité 100% garantie</div>
+          <div><svg viewBox="0 0 14 14" fill="none" stroke-width="1.4"><path d="M2 9h10l1-4H4L3 3H1"/></svg> Livraison France offerte (sans minimum)</div>
+          <div><svg viewBox="0 0 14 14" fill="none" stroke-width="1.4"><path d="M3 3h8v8H3z M5 3v8 M9 3v8"/></svg> Retours 14 jours, gratuits</div>
+          <div><svg viewBox="0 0 14 14" fill="none" stroke-width="1.4"><circle cx="7" cy="7" r="5"/><path d="M7 4v3l2 2"/></svg> Service client 6j/7 · 9h-19h</div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><h3>Casablanca Store</h3><p>Revendeur officiel français de la maison Casablanca Paris.</p></div>
+        <div class="footer-col"><h5>Acheter</h5><ul><li><a href="collections/homme.html">Tout l'homme</a></li><li><a href="collections/best-sellers.html">Best-sellers</a></li></ul></div>
+        <div class="footer-col"><h5>Aide</h5><ul><li><a href="pages/livraison.html">Livraison</a></li><li><a href="pages/retours.html">Retours</a></li><li><a href="pages/contact.html">Contact</a></li></ul></div>
+        <div class="footer-col"><h5>Maison</h5><ul><li><a href="pages/about.html">À propos</a></li><li><a href="pages/authenticite.html">Authenticité</a></li></ul></div>
+        <div class="footer-col"><h5>Légal</h5><ul><li><a href="pages/cgv.html">CGV</a></li><li><a href="pages/confidentialite.html">Confidentialité</a></li><li><a href="pages/cookies.html">Cookies</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Casablanca Store</span></div>
+    </div>
+  </footer>
+
+  <!-- Drawer (also available from header icon) -->
+  <div class="drawer-overlay" data-cart-close></div>
+  <aside class="cart-drawer">
+    <div class="cart-drawer__head"><h3>Votre panier</h3><button class="icon-btn" data-cart-close><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><line x1="4" y1="4" x2="16" y2="16"/><line x1="16" y1="4" x2="4" y2="16"/></svg></button></div>
+    <div class="cart-drawer__body" data-cart-body></div>
+    <div class="cart-drawer__foot">
+      <div class="cart-drawer__total"><span>Sous-total</span><span data-cart-total>0,00 €</span></div>
+      <button class="btn btn-primary btn-block" data-checkout disabled>Passer commande →</button>
+    </div>
+  </aside>
+
+  <script src="assets/js/main.js" defer></script>
+  <script>
+    // Cart page rendering
+    (() => {
+      const CART_KEY = 'cs_cart_v1';
+      const PROMO_KEY = 'cs_promo_v1';
+      const PROMOS = {
+        'MERCI10': { type: 'percent', value: 10, label: '-10%' },
+        'VENEZ10': { type: 'percent', value: 10, label: '-10%' },
+        'FIDELE15': { type: 'percent', value: 15, label: '-15%' },
+        'ANNIVCASA15': { type: 'percent', value: 15, label: '-15%' },
+        'REVENEZ20': { type: 'percent', value: 20, label: '-20%' }
+      };
+      const fmt = n => new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR'}).format(n);
+      const getCart = () => { try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; } catch { return []; } };
+      const setCart = c => localStorage.setItem(CART_KEY, JSON.stringify(c));
+      const getPromo = () => { try { return JSON.parse(localStorage.getItem(PROMO_KEY)); } catch { return null; } };
+      const setPromo = p => p ? localStorage.setItem(PROMO_KEY, JSON.stringify(p)) : localStorage.removeItem(PROMO_KEY);
+
+      const render = () => {
+        const cart = getCart();
+        const empty = document.getElementById('empty-state');
+        const layout = document.getElementById('cart-layout');
+        const headSummary = document.getElementById('cart-page-summary');
+        if (!cart.length) {
+          empty.style.display = 'block';
+          layout.style.display = 'none';
+          headSummary.textContent = 'Pas encore d\'articles. Voici nos best-sellers.';
+          return;
+        }
+        empty.style.display = 'none';
+        layout.style.display = 'grid';
+
+        const list = document.getElementById('cart-list');
+        list.innerHTML = cart.map((item, i) => `
+          <article class="cart-item">
+            <div class="cart-item__media">${item.image ? `<img src="${item.image}" alt="${item.title}" />` : ''}</div>
+            <div>
+              <h3 class="cart-item__title">${item.title}</h3>
+              <p class="cart-item__variant">${item.variant || ''}</p>
+              <div class="cart-item__qty" aria-label="Quantité">
+                <button type="button" data-page-dec="${i}" aria-label="Diminuer">−</button>
+                <span>${item.qty}</span>
+                <button type="button" data-page-inc="${i}" aria-label="Augmenter">+</button>
+              </div>
+            </div>
+            <div class="cart-item__price-line">
+              <span class="cart-item__price">${fmt(item.price * item.qty)}</span>
+              <button type="button" data-page-rm="${i}" class="cart-item__rm">Retirer</button>
+            </div>
+          </article>
+        `).join('');
+
+        const subtotal = cart.reduce((n, i) => n + i.price * i.qty, 0);
+        const items = cart.reduce((n, i) => n + i.qty, 0);
+        headSummary.textContent = `${items} article${items > 1 ? 's' : ''} dans votre panier.`;
+
+        document.querySelector('[data-cart-page-subtotal]').textContent = fmt(subtotal);
+
+        // Promo
+        let discount = 0;
+        const promo = getPromo();
+        const dLine = document.getElementById('discount-line');
+        if (promo && PROMOS[promo]) {
+          const p = PROMOS[promo];
+          discount = p.type === 'percent' ? subtotal * (p.value / 100) : p.value;
+          dLine.style.display = 'flex';
+          document.getElementById('promo-applied').textContent = `(${promo} · ${p.label})`;
+          document.getElementById('discount-amount').textContent = '−' + fmt(discount);
+        } else {
+          dLine.style.display = 'none';
+        }
+
+        // Shipping
+        const shipping = 0;
+        document.getElementById('shipping-line').textContent = 'Offerte (sans minimum)';
+
+        const total = Math.max(0, subtotal - discount);
+        document.querySelector('[data-cart-page-total]').textContent = fmt(total);
+        };
+
+      // Listeners
+      document.addEventListener('click', (e) => {
+        const dec = e.target.closest('[data-page-dec]');
+        if (dec) {
+          const c = getCart();
+          const i = +dec.dataset.pageDec;
+          c[i].qty -= 1;
+          if (c[i].qty <= 0) c.splice(i, 1);
+          setCart(c);
+          render();
+          window.dispatchEvent(new Event('cart-updated'));
+        }
+        const inc = e.target.closest('[data-page-inc]');
+        if (inc) {
+          const c = getCart();
+          c[+inc.dataset.pageInc].qty += 1;
+          setCart(c);
+          render();
+          window.dispatchEvent(new Event('cart-updated'));
+        }
+        const rm = e.target.closest('[data-page-rm]');
+        if (rm) {
+          const c = getCart();
+          c.splice(+rm.dataset.pageRm, 1);
+          setCart(c);
+          render();
+          window.dispatchEvent(new Event('cart-updated'));
+        }
+        if (e.target.id === 'cart-clear') {
+          e.preventDefault();
+          if (confirm('Vider le panier ?')) {
+            localStorage.removeItem('cs_cart_v1');
+            setPromo(null);
+            render();
+            window.dispatchEvent(new Event('cart-updated'));
+          }
+        }
+      });
+
+      // Promo apply
+      document.getElementById('promo-apply').addEventListener('click', () => {
+        const code = document.getElementById('promo-input').value.trim().toUpperCase();
+        const msg = document.getElementById('promo-msg');
+        msg.style.display = 'block';
+        if (PROMOS[code]) {
+          setPromo(code);
+          msg.className = 'promo-msg success';
+          msg.textContent = `Code ${code} appliqué : ${PROMOS[code].label}.`;
+          render();
+        } else if (code === '') {
+          msg.className = 'promo-msg error';
+          msg.textContent = 'Saisissez un code promo.';
+        } else {
+          msg.className = 'promo-msg error';
+          msg.textContent = `Code "${code}" invalide ou expiré.`;
+        }
+      });
+
+      render();
+    })();
+  </script>
+</body>
+</html>

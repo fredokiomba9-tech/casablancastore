@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Bloquer les pages internes
+Disallow: /cart
+Disallow: /account
+Disallow: /checkout
+Disallow: /search
+Disallow: /*?sort=
+Disallow: /*?page=
+Disallow: /*?filter=
+
+# Sitemap
+Sitemap: https://casablancastore.fr/sitemap.xml
+
+# Crawl-delay raisonnable (optionnel)
+Crawl-delay: 1

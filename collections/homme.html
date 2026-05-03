@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vêtements Homme · Casablanca Paris officiel — Casablanca Store</title>
+  <meta name="description" content="Tous les vêtements Casablanca Paris pour Homme : chemises soie, polos, mailles, ensembles, pantalons et accessoires. Revendeur officiel France." />
+  <link rel="canonical" href="https://casablancastore.fr/collections/homme.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Vêtements Homme · Casablanca Paris officiel" />
+  <meta property="og:description" content="Tous les vêtements Casablanca Paris pour Homme. Revendeur officiel France." />
+  <meta property="og:image" content="https://casablancastore.fr/assets/images/og-homme.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+
+  <style>
+    .collection-head {
+      padding: calc(var(--header-h) + 3rem) 0 2.5rem;
+      text-align: center;
+      background: var(--color-bg);
+    }
+    .breadcrumb {
+      font-size: var(--fs-xs);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: var(--space-4);
+    }
+    .breadcrumb a:hover { color: var(--color-terracotta); }
+    .collection-head h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 400;
+      margin-bottom: var(--space-3);
+    }
+    .collection-head p { color: var(--color-ink-soft); max-width: 60ch; margin: 0 auto; }
+
+    .collection-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-top: 1px solid var(--color-line);
+      border-bottom: 1px solid var(--color-line);
+      margin-bottom: var(--space-7);
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      font-size: var(--fs-sm);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .collection-toolbar .left,
+    .collection-toolbar .right { display: flex; align-items: center; gap: var(--space-5); }
+    .toolbar-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-weight: 500;
+      padding: 8px 0;
+    }
+    .toolbar-btn:hover { color: var(--color-terracotta); }
+    .sort-select {
+      font: inherit;
+      letter-spacing: inherit;
+      text-transform: inherit;
+      background: transparent;
+      border: 0;
+      padding: 8px 24px 8px 0;
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none' stroke='%231f1b16' stroke-width='1.4'%3E%3Cpolyline points='3 5 6 8 9 5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right center;
+    }
+
+    .collection-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: var(--space-6);
+      align-items: start;
+    }
+    .filters {
+      position: sticky;
+      top: calc(var(--header-h) + 1rem);
+    }
+    .filter-group {
+      border-bottom: 1px solid var(--color-line);
+      padding: var(--space-4) 0;
+    }
+    .filter-group:first-child { border-top: 1px solid var(--color-line); }
+    .filter-group summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: var(--fs-sm);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 6px 0;
+    }
+    .filter-group summary::-webkit-details-marker { display: none; }
+    .filter-group summary::after {
+      content: "+";
+      font-weight: 300;
+      font-size: 1.25rem;
+      transition: transform var(--t-fast) var(--ease);
+    }
+    .filter-group[open] summary::after { content: "−"; }
+    .filter-list {
+      padding-top: var(--space-3);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    .filter-list label {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--fs-sm);
+      cursor: pointer;
+      color: var(--color-ink-soft);
+    }
+    .filter-list label:hover { color: var(--color-ink); }
+    .filter-list input[type="checkbox"] {
+      width: 14px; height: 14px;
+      accent-color: var(--color-ink);
+    }
+    .filter-list .count { color: var(--color-muted); font-size: 11px; margin-left: auto; }
+
+    .filter-swatches { display: flex; flex-wrap: wrap; gap: 8px; padding-top: var(--space-3); }
+    .filter-swatches label {
+      display: flex; align-items: center; gap: 6px;
+      cursor: pointer;
+      font-size: var(--fs-xs);
+      color: var(--color-ink-soft);
+    }
+    .filter-swatches input { display: none; }
+    .filter-swatches .swatch {
+      width: 22px; height: 22px;
+      border: 1px solid var(--color-line-strong);
+      transition: outline var(--t-fast) var(--ease);
+    }
+    .filter-swatches input:checked + .swatch {
+      outline: 1px solid var(--color-ink);
+      outline-offset: 2px;
+    }
+
+    .filter-sizes { display: flex; flex-wrap: wrap; gap: 6px; padding-top: var(--space-3); }
+    .filter-sizes label { cursor: pointer; }
+    .filter-sizes input { display: none; }
+    .filter-sizes span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 36px;
+      height: 32px;
+      padding: 0 8px;
+      border: 1px solid var(--color-line-strong);
+      font-size: var(--fs-xs);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+    .filter-sizes input:checked + span {
+      border-color: var(--color-ink);
+      background: var(--color-ink);
+      color: var(--color-bg);
+    }
+
+    .pagination {
+      display: flex; align-items: center; justify-content: center;
+      gap: var(--space-3);
+      padding-top: var(--space-8);
+      font-size: var(--fs-sm);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .pagination a, .pagination span {
+      width: 36px; height: 36px;
+      display: inline-flex; align-items: center; justify-content: center;
+      border: 1px solid var(--color-line);
+    }
+    .pagination .current {
+      background: var(--color-ink); color: var(--color-bg); border-color: var(--color-ink);
+    }
+    .pagination a:hover { background: var(--color-cream); }
+
+    .seo-block {
+      margin-top: var(--space-8);
+      padding: var(--space-7) 0;
+      border-top: 1px solid var(--color-line);
+    }
+    .seo-block h2 { font-size: clamp(1.5rem, 2.6vw, 2.25rem); font-weight: 400; }
+    .seo-block .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-7);
+      margin-top: var(--space-5);
+    }
+    .seo-block p { color: var(--color-ink-soft); }
+
+    .filters-toggle {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .collection-layout { grid-template-columns: 1fr; }
+      .filters {
+        position: fixed;
+        top: 0; left: 0;
+        height: 100vh;
+        width: min(360px, 90vw);
+        background: var(--color-bg);
+        z-index: 110;
+        padding: var(--space-6) var(--gutter);
+        overflow-y: auto;
+        transform: translateX(-100%);
+        transition: transform var(--t-mid) var(--ease);
+        box-shadow: var(--shadow-lg);
+      }
+      .filters.is-open { transform: translateX(0); }
+      .filters-toggle {
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+      }
+      .seo-block .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- Schema.org BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://casablancastore.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Homme", "item": "https://casablancastore.fr/collections/homme.html" }
+    ]
+  }
+  </script>
+
+  <!-- Schema.org CollectionPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Vêtements Homme Casablanca Paris",
+    "description": "Tous les vêtements Casablanca Paris pour Homme : chemises soie, polos, mailles, ensembles, pantalons et accessoires.",
+    "url": "https://casablancastore.fr/collections/homme.html",
+    "isPartOf": { "@type": "WebSite", "name": "Casablanca Store", "url": "https://casablancastore.fr" }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Annonce -->
+  <div class="announce">
+    <div class="announce__track">
+      <span>Livraison France offerte (sans minimum)</span>
+      
+      <span>Retours étendus sous 14 jours</span>
+      <span>Revendeur officiel Casablanca Paris</span>
+      <span>Livraison France offerte (sans minimum)</span>
+      
+      <span>Retours étendus sous 14 jours</span>
+      <span>Revendeur officiel Casablanca Paris</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <button class="menu-toggle icon-btn" aria-label="Menu">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><line x1="2" y1="6" x2="18" y2="6"/><line x1="2" y1="14" x2="18" y2="14"/></svg>
+        </button>
+        <nav class="primary-nav">
+          <a class="nav-link" href="homme.html">Homme</a>
+          <a class="nav-link" href="nouveautes.html">Nouveautés</a>
+          <a class="nav-link" href="chemises.html">Chemises</a>
+          <a class="nav-link" href="polos.html">Polos</a>
+          <a class="nav-link" href="mailles.html">Maille</a>
+          <a class="nav-link" href="../blog/index.html">Journal</a>
+        </nav>
+        <a class="brand" href="../index.html">Casablanca<span>Store · Revendeur officiel</span></a>
+        <div class="header-actions">
+          <button class="icon-btn" aria-label="Rechercher"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="9" cy="9" r="6"/><line x1="14" y1="14" x2="18" y2="18"/></svg></button>
+          <a class="icon-btn icon-btn--account" href="../pages/account.html" aria-label="Compte"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="10" cy="7" r="3.2"/><path d="M3.5 17c1.6-3.2 4.1-4.5 6.5-4.5s4.9 1.3 6.5 4.5"/></svg></a>
+          <button class="icon-btn" aria-label="Panier" data-cart-open><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 6h12l-1.2 9.5a1.5 1.5 0 0 1-1.5 1.3H6.7a1.5 1.5 0 0 1-1.5-1.3L4 6z"/><path d="M7 6V5a3 3 0 0 1 6 0v1"/></svg><span class="cart-count" style="display:none;">0</span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <aside class="mobile-menu" id="mobile-menu">
+    <nav>
+      <a href="homme.html">Homme</a>
+      <a href="nouveautes.html">Nouveautés</a>
+      <a href="chemises.html">Chemises</a>
+      <a href="polos.html">Polos</a>
+      <a href="mailles.html">Maille</a>
+      <a href="pantalons.html">Pantalons</a>
+      <a href="accessoires.html">Accessoires</a>
+      <a href="../blog/index.html">Journal</a>
+    </nav>
+  </aside>
+
+  <!-- Page header -->
+  <section class="collection-head">
+    <div class="container">
+      <p class="breadcrumb"><a href="../index.html">Accueil</a> · <span>Homme</span></p>
+      <h1>Homme</h1>
+      <p>Toute la collection homme officielle Casablanca Paris — chemises en soie, polos Tennis Club, mailles, ensembles imprimés et tailoring de saison. Authenticité garantie, expédition depuis la France.</p>
+    </div>
+  </section>
+
+  <section class="container" style="padding-bottom: 4rem;">
+
+    <!-- Toolbar -->
+    <div class="collection-toolbar">
+      <div class="left">
+        <button class="toolbar-btn filters-toggle" aria-label="Ouvrir les filtres">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><line x1="2" y1="4" x2="12" y2="4"/><line x1="2" y1="10" x2="12" y2="10"/><circle cx="6" cy="4" r="1.5" fill="var(--color-bg)"/><circle cx="9" cy="10" r="1.5" fill="var(--color-bg)"/></svg>
+          Filtrer
+        </button>
+        <span style="color:var(--color-muted);">42 articles</span>
+      </div>
+      <div class="right">
+        <label for="sort" style="color:var(--color-muted);">Trier par</label>
+        <select id="sort" class="sort-select">
+          <option>Recommandé</option>
+          <option>Nouveautés</option>
+          <option>Prix croissant</option>
+          <option>Prix décroissant</option>
+          <option>Best-sellers</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="collection-layout">
+
+      <!-- Filtres -->
+      <aside class="filters" id="filters" aria-label="Filtres">
+
+        <details class="filter-group" open>
+          <summary>Catégorie</summary>
+          <div class="filter-list">
+            <label><input type="checkbox" /> Chemises <span class="count">9</span></label>
+            <label><input type="checkbox" /> Polos <span class="count">7</span></label>
+            <label><input type="checkbox" /> Maille <span class="count">6</span></label>
+            <label><input type="checkbox" /> Sweats <span class="count">5</span></label>
+            <label><input type="checkbox" /> Pantalons <span class="count">4</span></label>
+            <label><input type="checkbox" /> Survêtements <span class="count">3</span></label>
+            <label><input type="checkbox" /> Maillots <span class="count">3</span></label>
+            <label><input type="checkbox" /> Accessoires <span class="count">2</span></label>
+          </div>
+        </details>
+
+        <details class="filter-group" open>
+          <summary>Taille</summary>
+          <div class="filter-sizes">
+            <label><input type="checkbox" /><span>XS</span></label>
+            <label><input type="checkbox" /><span>S</span></label>
+            <label><input type="checkbox" /><span>M</span></label>
+            <label><input type="checkbox" /><span>L</span></label>
+            <label><input type="checkbox" /><span>XL</span></label>
+            <label><input type="checkbox" /><span>XXL</span></label>
+            <label><input type="checkbox" /><span>40</span></label>
+            <label><input type="checkbox" /><span>41</span></label>
+            <label><input type="checkbox" /><span>42</span></label>
+            <label><input type="checkbox" /><span>43</span></label>
+            <label><input type="checkbox" /><span>44</span></label>
+          </div>
+        </details>
+
+        <details class="filter-group" open>
+          <summary>Couleur</summary>
+          <div class="filter-swatches">
+            <label><input type="checkbox" /><span class="swatch" style="background:#ebe1d2"></span>Crème</label>
+            <label><input type="checkbox" /><span class="swatch" style="background:#1f1b16"></span>Noir</label>
+            <label><input type="checkbox" /><span class="swatch" style="background:#1c2a4a"></span>Marine</label>
+            <label><input type="checkbox" /><span class="swatch" style="background:#c26849"></span>Terracotta</label>
+            <label><input type="checkbox" /><span class="swatch" style="background:#7a8b6f"></span>Sauge</label>
+            <label><input type="checkbox" /><span class="swatch" style="background:#b89968"></span>Or</label>
+            <label><input type="checkbox" /><span class="swatch" style="background:#fff;border-color:#ccc"></span>Blanc</label>
+            <label><input type="checkbox" /><span class="swatch" style="background:#a5160f"></span>Rouge</label>
+          </div>
+        </details>
+
+        <details class="filter-group" open>
+          <summary>Prix</summary>
+          <div class="filter-list">
+            <label><input type="checkbox" /> Moins de 300 € <span class="count">8</span></label>
+            <label><input type="checkbox" /> 300 € — 500 € <span class="count">14</span></label>
+            <label><input type="checkbox" /> 500 € — 800 € <span class="count">12</span></label>
+            <label><input type="checkbox" /> 800 € — 1 200 € <span class="count">5</span></label>
+            <label><input type="checkbox" /> Plus de 1 200 € <span class="count">3</span></label>
+          </div>
+        </details>
+
+        <details class="filter-group">
+          <summary>Matière</summary>
+          <div class="filter-list">
+            <label><input type="checkbox" /> Soie <span class="count">12</span></label>
+            <label><input type="checkbox" /> Coton <span class="count">15</span></label>
+            <label><input type="checkbox" /> Coton-soie <span class="count">5</span></label>
+            <label><input type="checkbox" /> Maille <span class="count">8</span></label>
+            <label><input type="checkbox" /> Cuir <span class="count">4</span></label>
+            <label><input type="checkbox" /> Lin <span class="count">3</span></label>
+          </div>
+        </details>
+
+        <details class="filter-group">
+          <summary>Disponibilité</summary>
+          <div class="filter-list">
+            <label><input type="checkbox" /> En stock <span class="count">38</span></label>
+            <label><input type="checkbox" /> Précommande <span class="count">4</span></label>
+          </div>
+        </details>
+
+        <button class="btn btn-secondary btn-block" style="margin-top:1.5rem;">Réinitialiser les filtres</button>
+      </aside>
+
+      <!-- Grille produits -->
+      <div>
+        <div class="product-grid">
+
+          <article class="product-card" data-product data-id="ex-nd-ms23-sh-003-01-tennis-club-icon-silk-shirt" data-title="Chemise en soie monogramme — Crème" data-price="650">
+            <a class="product-card__media" href="../products/ex-nd-ms23-sh-003-01-tennis-club-icon-silk-shirt.html">
+              <span class="product-card__badge">Nouveauté</span>
+              <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-u-mps24-sh-003-05-tennis-club-icon-silk-shirt-flat-1.jpg?v=1716157434" alt="Chemise en soie monogramme crème" loading="lazy" />
+              <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-u-mf23-sh-003-13-studio-de-musique-silk-shirt-flat-back_b76f1775-7723-4e76-9db0-0bbbb41907b1.jpg?v=1718207270" alt="" loading="lazy" />
+              <div class="product-card__quick"><button class="btn btn-primary" data-add-to-cart>Ajouter — 650 €</button></div>
+            </a>
+            <div class="product-card__body">
+              <span class="product-card__cat">Chemises · Soie</span>
+              <h3 class="product-card__title">Chemise monogramme — Crème</h3>
+              <div class="product-card__price"><strong>650,00 €</strong></div>
+              <div class="product-card__swatches"><span class="swatch" style="background:#ebe1d2"></span><span class="swatch" style="background:#1f1b16"></span><span class="swatch" style="background:#6f8267"></span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-product data-id="mps24-jtp-155-01-rib-velour-polo-shirt" data-title="Polo Tennis Club — Marine" data-price="320">
+            <a class="product-card__media" href="../products/mps24-jtp-155-01-rib-velour-polo-shirt.html">
+              <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-mps24-jtp-155-01-rib-velour-polo-shirt-flat-1_133e5354-1b69-4d11-81f5-f94319fe6d13.jpg?v=1718209295" alt="Polo Tennis Club marine" loading="lazy" />
+              <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-mps24-jtp-155-01-rib-velour-polo-shirt-flat-1_133e5354-1b69-4d11-81f5-f94319fe6d13.jpg?v=1718209295" alt="" loading="lazy" />
+              <div class="product-card__quick"><button class="btn btn-primary" data-add-to-cart>Ajouter — 320 €</button></div>
+            </a>
+            <div class="product-card__body">
+              <span class="product-card__cat">Polos · Coton piqué</span>
+              <h3 class="product-card__title">Polo Tennis Club — Marine</h3>
+              <div class="product-card__price"><strong>320,00 €</strong></div>
+              <div class="product-card__swatches"><span class="swatch" style="background:#1c2a4a"></span><span class="swatch" style="background:#ebe1d2"></span><span class="swatch" style="background:#c26849"></span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-product data-id="mps24-kw-586-01-rib-boucle-polo-shirt" data-title="Polo en maille Vague — Sauge" data-price="495">
+            <a class="product-card__media" href="../products/mps24-kw-586-01-rib-boucle-polo-shirt.html">
+              <span class="product-card__badge">Édition limitée</span>
+              <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-ms24-kw-669-01-srtiped-crew-neck-jumper-flat-1_a9dab047-9ab2-4287-8eac-0dfe45e8a2b3.jpg?v=1718210701" alt="Polo maille vague sauge" loading="lazy" />
+              <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-ms24-kw-573-01-rib-effect-trousers-flat-1_da6246a4-d680-42aa-b903-90835972290c.jpg?v=1718209701" alt="" loading="lazy" />
+              <div class="product-card__quick"><button class="btn btn-primary" data-add-to-cart>Ajouter — 495 €</button></div>
+            </a>
+            <div class="product-card__body">
+              <span class="product-card__cat">Maille · Coton-soie</span>
+              <h3 class="product-card__title">Polo maille Vague — Sauge</h3>
+              <div class="product-card__price"><strong>495,00 €</strong></div>
+              <div class="product-card__swatches"><span class="swatch" style="background:#7a8b6f"></span><span class="swatch" style="background:#b89968"></span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-product data-id="u-mf23-jk-031-01-souvenir-silk-jacket" data-title="Veste survêtement soie — Terracotta" data-price="890">
+            <a class="product-card__media" href="../products/u-mf23-jk-031-01-souvenir-silk-jacket.html">
+              <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/ms23-jk-179-01-side-panel-shell-suit-track-jacket-01_4e1e9ce7-5203-4fe8-811f-b83ec7f85ee2.jpg?v=1718208525" alt="Veste survêtement soie terracotta" loading="lazy" />
+              <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-u-mf23-jk-031-01-souvenir-silk-jacket-flat-2_23c3d250-fe19-4730-9b45-2f80f73786a0.jpg?v=1718208465" alt="" loading="lazy" />
+              <div class="product-card__quick"><button class="btn btn-primary" data-add-to-cart>Ajouter — 890 €</button></div>
+            </a>
+            <div class="product-card__body">
+              <span class="product-card__cat">Survêtements · Soie</span>
+              <h3 class="product-card__title">Veste survêtement — Terracotta</h3>
+              <div class="product-card__price"><strong>890,00 €</strong></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-product data-id="mps24-jtp-001-04-tennis-club-icon-sweatshirt" data-title="Sweat capuche monogramme — Noir" data-price="450">
+            <a class="product-card__media" href="../products/mps24-jtp-001-04-tennis-club-icon-sweatshirt.html">
+              <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-ms24-kw-572-01-rib-effect-hooded-sweatshirt-flat-1_3e014c9f-f5ef-4692-be06-33a282f24bce.jpg?v=1718209686" alt="Sweat à capuche noir" loading="lazy" />
+              <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-ms24-kw-669-01-srtiped-crew-neck-jumper-flat-1_a9dab047-9ab2-4287-8eac-0dfe45e8a2b3.jpg?v=1718210701" alt="" loading="lazy" />
+              <div class="product-card__quick"><button class="btn btn-primary" data-add-to-cart>Ajouter — 450 €</button></div>
+            </a>
+            <div class="product-card__body">
+              <span class="product-card__cat">Sweats · Coton bouclette</span>
+              <h3 class="product-card__title">Sweat capuche monogramme — Noir</h3>
+              <div class="product-card__price"><strong>450,00 €</strong></div>
+          <span class="product-card__sizes" aria-label="Tailles">XS</span>
+            </div>
+          </article>
+
+          <article class="product-card" data-product data-id="mf23-tr-012-12-studio-de-musique-silk-shorts" data-title="Short en soie L'Arche — Crème" data-price="390">
+            <a class="product-card__media" href="../products/mf23-tr-012-12-studio-de-musique-silk-shorts.html">
+              <span class="product-card__badge">Édition limitée</span>
+              <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/mf23-tr-012-12-studio-de-musique-silk-shorts-flat-2_c1fcb05c-f7e1-4838-9d89-cdc221b772a3.jpg?v=1718207225" alt="Short soie L'Arche crème" loading="lazy" />
+              <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-u-mf23-jk-031-01-souvenir-silk-jacket-flat-2_23c3d250-fe19-4730-9b45-2f80f73786a0.jpg?v=1718208465" alt="" loading="lazy" />
+              <div class="product-card__quick"><button class="btn btn-primary" data-add-to-cart>Ajouter — 390 €</button></div>
+            </a>
+            <div class="product-card__body">
+              <span class="product-card__cat">Shorts · Soie imprimée</span>
+              <h3 class="product-card__title">Short L'Arche — Crème</h3>
+              <div class="product-card__price"><strong>390,00 €</strong></div>
+          <span class="product-card__sizes" aria-label="Tailles">XS</span>
+            </div>
+          </article>
+
+<article class="product-card" data-product data-id="u-mf23-jk-031-01-souvenir-silk-jacket" data-title="Ensemble pyjama soie — Bleu Riviera" data-price="1100">
+            <a class="product-card__media" href="../products/u-mf23-jk-031-01-souvenir-silk-jacket.html">
+              <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/mf23-jts-001-19-02_a0450e93-54bd-4bba-a2b5-82ce290d89aa.jpg?v=1718207536" alt="Ensemble pyjama soie bleu" loading="lazy" />
+              <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-u-mf23-jk-031-01-souvenir-silk-jacket-flat-2_23c3d250-fe19-4730-9b45-2f80f73786a0.jpg?v=1718208465" alt="" loading="lazy" />
+              <div class="product-card__quick"><button class="btn btn-primary" data-add-to-cart>Ajouter — 1 100 €</button></div>
+            </a>
+            <div class="product-card__body">
+              <span class="product-card__cat">Ensembles · Soie imprimée</span>
+              <h3 class="product-card__title">Ensemble pyjama — Bleu Riviera</h3>
+              <div class="product-card__price"><strong>1 100,00 €</strong></div>
+          <span class="product-card__sizes" aria-label="Tailles">XS</span>
+            </div>
+          </article>
+
+          <article class="product-card" data-product data-id="ms23-sh-006-08-spirit-lake-cuban-collar-shirt" data-title="Chemise cubaine rayée — Crème" data-price="395">
+            <a class="product-card__media" href="../products/ms23-sh-006-08-spirit-lake-cuban-collar-shirt.html">
+              <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/ms23-sh-006-08_2_1a68e0ac-452b-44c6-bdbb-62f37e6512f6.png?v=1718204765" alt="Chemise cubaine rayée" loading="lazy" />
+              <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-u-mf23-sh-003-13-studio-de-musique-silk-shirt-flat-back_b76f1775-7723-4e76-9db0-0bbbb41907b1.jpg?v=1718207270" alt="" loading="lazy" />
+              <div class="product-card__quick"><button class="btn btn-primary" data-add-to-cart>Ajouter — 395 €</button></div>
+            </a>
+            <div class="product-card__body">
+              <span class="product-card__cat">Chemises · Coton</span>
+              <h3 class="product-card__title">Chemise cubaine rayée — Crème</h3>
+              <div class="product-card__price"><strong>395,00 €</strong></div>
+          <span class="product-card__sizes" aria-label="Tailles">XS</span>
+            </div>
+          </article>
+
+          <article class="product-card" data-product data-id="mps24-tr-184-01-straight-leg-trouser" data-title="Pantalon plissé — Crème" data-price="540">
+            <a class="product-card__media" href="../products/mps24-tr-184-01-straight-leg-trouser.html">
+              <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-ms24-kw-573-01-rib-effect-trousers-flat-1_da6246a4-d680-42aa-b903-90835972290c.jpg?v=1718209701" alt="Pantalon plissé crème" loading="lazy" />
+              <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/ex-nd-ms23-tr-032-03-sport-grid-swim-trunks-flat-1_3519ad48-f733-447e-a95b-412b7f2af2da.jpg?v=1718206913" alt="" loading="lazy" />
+              <div class="product-card__quick"><button class="btn btn-primary" data-add-to-cart>Ajouter — 540 €</button></div>
+            </a>
+            <div class="product-card__body">
+              <span class="product-card__cat">Pantalons · Laine</span>
+              <h3 class="product-card__title">Pantalon plissé — Crème</h3>
+              <div class="product-card__price"><strong>540,00 €</strong></div>
+          <span class="product-card__sizes" aria-label="Tailles">44-44</span>
+            </div>
+          </article>
+
+          <article class="product-card" data-product data-id="as23-hat-002-01-white-tennis-club-icon-cap" data-title="Casquette monogramme — Marine" data-price="180">
+            <a class="product-card__media" href="../products/as23-hat-002-01-white-tennis-club-icon-cap.html">
+              <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/0000s_0014_HAT_002_LOGO_16398-retouched_5ec77917-31c6-4788-a8b1-cdb2c8d53870.jpg?v=1718205176" alt="Casquette monogramme marine" loading="lazy" />
+              <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-ms24-kw-669-01-srtiped-crew-neck-jumper-flat-1_a9dab047-9ab2-4287-8eac-0dfe45e8a2b3.jpg?v=1718210701" alt="" loading="lazy" />
+              <div class="product-card__quick"><button class="btn btn-primary" data-add-to-cart>Ajouter — 180 €</button></div>
+            </a>
+            <div class="product-card__body">
+              <span class="product-card__cat">Accessoires · Coton</span>
+              <h3 class="product-card__title">Casquette monogramme — Marine</h3>
+              <div class="product-card__price"><strong>180,00 €</strong></div>
+          <span class="product-card__sizes" aria-label="Tailles">OS</span>
+            </div>
+          </article>
+
+          <article class="product-card" data-product data-id="ex-nd-ms23-tr-032-03-sport-grid-swim-trunks" data-title="Maillot L'Arche — Bleu" data-price="290">
+            <a class="product-card__media" href="../products/ex-nd-ms23-tr-032-03-sport-grid-swim-trunks.html">
+              <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/ex-nd-ms23-tr-032-03-sport-grid-swim-trunks-flat-1_3519ad48-f733-447e-a95b-412b7f2af2da.jpg?v=1718206913" alt="Maillot L'Arche bleu" loading="lazy" />
+              <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/mf23-tr-012-12-studio-de-musique-silk-shorts-flat-2_c1fcb05c-f7e1-4838-9d89-cdc221b772a3.jpg?v=1718207225" alt="" loading="lazy" />
+              <div class="product-card__quick"><button class="btn btn-primary" data-add-to-cart>Ajouter — 290 €</button></div>
+            </a>
+            <div class="product-card__body">
+              <span class="product-card__cat">Maillots · Polyamide</span>
+              <h3 class="product-card__title">Maillot L'Arche — Bleu Riviera</h3>
+              <div class="product-card__price"><strong>290,00 €</strong></div>
+          <span class="product-card__sizes" aria-label="Tailles">XS</span>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Pagination -->
+        <nav class="pagination" aria-label="Pagination">
+          <span class="current">1</span>
+          <a href="?page=2">2</a>
+          <a href="?page=3">3</a>
+          <a href="?page=4">4</a>
+          <a href="?page=2" aria-label="Page suivante">→</a>
+        </nav>
+
+        <!-- SEO content -->
+        <div class="seo-block">
+          <h2>La collection Homme Casablanca Paris</h2>
+          <div class="grid">
+            <p>
+              Maison parisienne fondée en 2018 par Charaf Tajer, Casablanca incarne un luxe contemporain inspiré du sport,
+              de la Riviera et de la culture du tennis-club. Chaque saison, la marque dessine un vestiaire homme à la fois
+              raffiné et joyeux : <strong>chemises en soie monogrammées</strong>, <strong>polos Tennis Club</strong> en coton piqué,
+              <strong>mailles bicolores</strong>, ensembles imprimés et tailoring sportif.
+            </p>
+            <p>
+              Sur Casablanca Store, retrouvez l'ensemble du vestiaire homme officiel — pièces issues des collections
+              <strong>Printemps-Été 2026</strong>, <strong>Beach Club</strong> et <strong>Resort</strong>. Chaque article est expédié
+              depuis nos entrepôts en France métropolitaine, sous 24 à 48 heures, avec emballage signature et certificat
+              d'authenticité Casablanca Paris.
+            </p>
+          </div>
+          <div class="grid">
+            <p>
+              <strong>Comment choisir sa pièce ?</strong> Pour un premier achat, nous recommandons la <em>chemise en soie monogramme</em>
+              (cadeau idéal, pièce iconique) ou le <em>polo Tennis Club</em> (incontournable, à porter de mai à septembre).
+              Les <em>mailles bicolores</em> sont parfaites pour les soirées du printemps, et les <em>ensembles imprimés</em>
+              sont les pièces fortes de la saison Resort.
+            </p>
+            <p>
+              <strong>Authentification.</strong> Chaque commande est livrée avec sa boîte d'origine, son hangtag,
+              son sachet protecteur et son certificat. En cas de doute, notre service client procède à une vérification
+              gratuite avant expédition. <a href="../pages/authenticite.html">En savoir plus sur l'authenticité →</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="section newsletter">
+    <div class="container-narrow newsletter__inner">
+      <p class="eyebrow">Liste privée</p>
+      <h2>Premiers à savoir, <em class="italic-script">premiers servis</em>.</h2>
+      <p>10 % sur votre première commande, accès aux drops avant tout le monde.</p>
+      <form class="newsletter__form" data-newsletter>
+        <input type="email" required placeholder="Votre adresse e-mail" />
+        <button type="submit">S'inscrire →</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Casablanca Store</h3>
+          <p>Revendeur officiel français de la maison Casablanca Paris. Pièces homme expédiées de France, expédition sous 48h, retours 14 jours.</p>
+          <div class="socials">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 3v3.5a3.5 3.5 0 0 0 3.5 3.5V13a6.5 6.5 0 0 1-4-1.4V16a5 5 0 1 1-5-5v3.5a1.5 1.5 0 1 0 1.5 1.5V3z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col"><h5>Acheter</h5><ul><li><a href="homme.html">Tout l'homme</a></li><li><a href="nouveautes.html">Nouveautés</a></li><li><a href="best-sellers.html">Best-sellers</a></li><li><a href="chemises.html">Chemises</a></li><li><a href="polos.html">Polos</a></li><li><a href="mailles.html">Maille</a></li></ul></div>
+        <div class="footer-col"><h5>Aide</h5><ul><li><a href="../pages/livraison.html">Livraison</a></li><li><a href="../pages/retours.html">Retours</a></li><li><a href="../pages/guide-tailles.html">Guide des tailles</a></li><li><a href="../pages/contact.html">Contact</a></li><li><a href="../pages/faq.html">FAQ</a></li></ul></div>
+        <div class="footer-col"><h5>Maison</h5><ul><li><a href="../pages/about.html">À propos</a></li><li><a href="../blog/index.html">Journal</a></li><li><a href="../pages/authenticite.html">Authenticité</a></li></ul></div>
+        <div class="footer-col"><h5>Légal</h5><ul><li><a href="../pages/cgv.html">CGV</a></li><li><a href="../pages/mentions-legales.html">Mentions légales</a></li><li><a href="../pages/confidentialite.html">Confidentialité</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Casablanca Store · Revendeur officiel · France</span>
+        <div class="pay"><span>Visa</span><span>Mastercard</span><span>Amex</span><span>PayPal</span><span>Apple Pay</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart drawer -->
+  <div class="drawer-overlay" data-cart-close></div>
+  <aside class="cart-drawer" aria-label="Panier">
+    <div class="cart-drawer__head">
+      <h3>Votre panier</h3>
+      <button class="icon-btn" data-cart-close aria-label="Fermer"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><line x1="4" y1="4" x2="16" y2="16"/><line x1="16" y1="4" x2="4" y2="16"/></svg></button>
+    </div>
+    <div class="cart-drawer__body" data-cart-body></div>
+    <div class="cart-drawer__foot">
+      <div class="cart-drawer__total"><span>Sous-total</span><span data-cart-total>0,00 €</span></div>
+      <p style="font-size:.75rem;color:var(--color-muted);margin:0 0 12px;">Livraison & taxes calculées à la commande.</p>
+      <button class="btn btn-primary btn-block" data-checkout disabled>Passer commande →</button>
+    </div>
+  </aside>
+
+  <script src="../assets/js/main.js" defer></script>
+  <script>
+    // Filtres mobile toggle
+    document.querySelector('.filters-toggle')?.addEventListener('click', () => {
+      document.getElementById('filters').classList.toggle('is-open');
+    });
+  </script>
+</body>
+</html>

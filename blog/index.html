@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Le Journal — Style, savoir-faire & culture Casablanca · Casablanca Store</title>
+  <meta name="description" content="Le journal de Casablanca Store : guides de style, savoir-faire des matières, histoire de la maison Casablanca Paris, conseils d'achat et entretien des pièces." />
+  <link rel="canonical" href="https://casablancastore.fr/blog/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Le Journal · Casablanca Store" />
+  <meta property="og:description" content="Guides de style, savoir-faire et culture Casablanca Paris." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+
+  <style>
+    .blog-head {
+      padding: calc(var(--header-h) + 4rem) 0 3rem;
+      text-align: center;
+    }
+    .blog-head h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 400; }
+    .blog-head p { color: var(--color-ink-soft); max-width: 60ch; margin: 0 auto; font-size: var(--fs-lg); }
+
+    .blog-tags {
+      display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+      margin-top: var(--space-5);
+    }
+    .blog-tags a {
+      padding: 8px 16px;
+      border: 1px solid var(--color-line-strong);
+      font-size: var(--fs-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .blog-tags a:hover, .blog-tags a.active {
+      background: var(--color-ink); color: var(--color-bg); border-color: var(--color-ink);
+    }
+
+    .featured {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: var(--space-7);
+      align-items: center;
+      margin-bottom: var(--space-9);
+    }
+    .featured__media { aspect-ratio: 4/3; overflow: hidden; background: var(--color-cream); }
+    .featured__media img { width: 100%; height: 100%; object-fit: cover; }
+    .featured h2 { font-size: clamp(1.75rem, 3.5vw, 3rem); font-weight: 400; margin-bottom: var(--space-3); }
+    .featured__cat { color: var(--color-terracotta); font-size: var(--fs-xs); letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; margin-bottom: var(--space-3); display: block; }
+    .featured p { font-size: var(--fs-lg); color: var(--color-ink-soft); }
+
+    @media (max-width: 800px) {
+      .featured { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="announce"><div class="announce__track">
+    <span>Livraison France offerte (sans minimum)</span><span>Retours 14 jours</span><span>Authenticité garantie</span>
+    <span>Livraison France offerte (sans minimum)</span><span>Retours 14 jours</span><span>Authenticité garantie</span>
+  </div></div>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <button class="menu-toggle icon-btn" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><line x1="2" y1="6" x2="18" y2="6"/><line x1="2" y1="14" x2="18" y2="14"/></svg></button>
+        <nav class="primary-nav">
+          <a class="nav-link" href="../collections/homme.html">Homme</a>
+          <a class="nav-link" href="../collections/nouveautes.html">Nouveautés</a>
+          <a class="nav-link" href="../collections/chemises.html">Chemises</a>
+          <a class="nav-link" href="../collections/polos.html">Polos</a>
+          <a class="nav-link" href="../collections/mailles.html">Maille</a>
+          <a class="nav-link" href="index.html">Journal</a>
+        </nav>
+        <a class="brand" href="../index.html">Casablanca<span>Store · Revendeur officiel</span></a>
+        <div class="header-actions">
+          <button class="icon-btn" aria-label="Rechercher"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="9" cy="9" r="6"/><line x1="14" y1="14" x2="18" y2="18"/></svg></button>
+          <a class="icon-btn icon-btn--account" href="../pages/account.html" aria-label="Compte"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="10" cy="7" r="3.2"/><path d="M3.5 17c1.6-3.2 4.1-4.5 6.5-4.5s4.9 1.3 6.5 4.5"/></svg></a>
+          <button class="icon-btn" aria-label="Panier" data-cart-open><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 6h12l-1.2 9.5a1.5 1.5 0 0 1-1.5 1.3H6.7a1.5 1.5 0 0 1-1.5-1.3L4 6z"/><path d="M7 6V5a3 3 0 0 1 6 0v1"/></svg><span class="cart-count" style="display:none;">0</span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <aside class="mobile-menu" id="mobile-menu">
+    <nav>
+      <a href="../collections/homme.html">Homme</a>
+      <a href="../collections/nouveautes.html">Nouveautés</a>
+      <a href="../collections/chemises.html">Chemises</a>
+      <a href="index.html">Journal</a>
+    </nav>
+  </aside>
+
+  <section class="blog-head container">
+    <p class="eyebrow">Le Journal</p>
+    <h1>Style, savoir-faire & <em class="italic-script">culture Casablanca</em></h1>
+    <p>Lectures, guides et coulisses signés Casablanca Store. Tout ce qu'il faut savoir pour porter, choisir et entretenir les pièces de la maison Casablanca Paris.</p>
+    <div class="blog-tags">
+      <a href="index.html" class="active">Tout</a>
+      <a href="#style">Style</a>
+      <a href="#guides">Guides d'achat</a>
+      <a href="#maison">La Maison</a>
+      <a href="#savoir-faire">Savoir-faire</a>
+      <a href="#entretien">Entretien</a>
+    </div>
+  </section>
+
+  <section class="container section">
+    <!-- Featured -->
+    <article class="featured reveal">
+      <a class="featured__media" href="comment-porter-chemise-casablanca.html">
+        <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-u-mf23-sh-003-13-studio-de-musique-silk-shirt-flat-back_b76f1775-7723-4e76-9db0-0bbbb41907b1.jpg?v=1718207270" alt="Comment porter une chemise Casablanca" />
+      </a>
+      <div>
+        <span class="featured__cat">Style · 6 min de lecture</span>
+        <h2><a href="comment-porter-chemise-casablanca.html">Comment porter une chemise Casablanca — 5 looks pour le printemps</a></h2>
+        <p>Du brunch dominical aux soirées de gala, cinq combinaisons de saison pour faire vivre la pièce signature de la maison parisienne — et les erreurs à éviter.</p>
+        <p style="font-size:var(--fs-xs);color:var(--color-muted);letter-spacing:.1em;text-transform:uppercase;margin-top:1rem;">12 mai 2026 · Par la rédaction</p>
+        <a href="comment-porter-chemise-casablanca.html" class="btn btn-secondary" style="margin-top:1.25rem;">Lire l'article</a>
+      </div>
+    </article>
+
+    <!-- Articles grid -->
+    <div class="blog-grid reveal">
+      <a class="blog-card" href="guide-tailles-casablanca.html">
+        <div class="blog-card__media">
+          <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-ms24-kw-669-01-srtiped-crew-neck-jumper-flat-1_a9dab047-9ab2-4287-8eac-0dfe45e8a2b3.jpg?v=1718210701" alt="Guide des tailles Casablanca" loading="lazy" />
+        </div>
+        <span class="blog-card__cat">Guide d'achat · 4 min de lecture</span>
+        <h3>Guide des tailles Casablanca — bien choisir sa chemise et son polo</h3>
+        <p>Mesures précises, coupes, conseils morphologiques : tout pour trouver la taille parfaite sans erreur d'achat.</p>
+        <span class="blog-card__meta">28 avril 2026</span>
+      </a>
+
+      <a class="blog-card" href="histoire-marque-casablanca.html">
+        <div class="blog-card__media">
+          <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/MS23-JTS-001-18RED_02_60c44478-5d32-4098-b5f6-75f171469af9.png?v=1718200563" alt="Histoire Casablanca Paris" loading="lazy" />
+        </div>
+        <span class="blog-card__cat">La Maison · 7 min de lecture</span>
+        <h3>L'histoire de Casablanca — de Charaf Tajer à la maison du tennis-club</h3>
+        <p>Origines, vision créative et ascension fulgurante : la chronologie complète d'une maison parisienne devenue culte.</p>
+        <span class="blog-card__meta">15 avril 2026</span>
+      </a>
+
+      <a class="blog-card" href="comment-porter-chemise-casablanca.html">
+        <div class="blog-card__media">
+          <img src="https://cdn.shopify.com/s/files/1/0786/5928/9420/files/casablanca-paris-u-mf23-sh-003-13-studio-de-musique-silk-shirt-flat-back_b76f1775-7723-4e76-9db0-0bbbb41907b1.jpg?v=1718207270" alt="Looks chemise Casablanca" loading="lazy" />
+        </div>
+        <span class="blog-card__cat">Style · 6 min de lecture</span>
+        <h3>Comment porter une chemise Casablanca — 5 looks pour le printemps</h3>
+        <p>Cinq combinaisons de saison pour faire vivre la pièce signature, et les erreurs à éviter.</p>
+        <span class="blog-card__meta">12 mai 2026</span>
+      </a>
+
+      <a class="blog-card" href="comment-porter-chemise-casablanca.html">
+        <div class="blog-card__media" style="background:var(--color-cream);display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:var(--font-display);font-size:3rem;color:var(--color-muted);">À venir</span>
+        </div>
+        <span class="blog-card__cat">Savoir-faire · 5 min de lecture</span>
+        <h3>La soie de mûrier — le tissu signature de Casablanca Paris</h3>
+        <p>Origine, qualité, momme : tout savoir sur la soie utilisée par la maison et comment la reconnaître.</p>
+        <span class="blog-card__meta">À paraître</span>
+      </a>
+
+      <a class="blog-card" href="comment-porter-chemise-casablanca.html">
+        <div class="blog-card__media" style="background:var(--color-cream);display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:var(--font-display);font-size:3rem;color:var(--color-muted);">À venir</span>
+        </div>
+        <span class="blog-card__cat">Entretien · 4 min de lecture</span>
+        <h3>Entretenir sa chemise en soie Casablanca — méthode pas-à-pas</h3>
+        <p>Lavage, séchage, repassage : les bons gestes pour faire durer votre pièce signature pendant des années.</p>
+        <span class="blog-card__meta">À paraître</span>
+      </a>
+
+      <a class="blog-card" href="comment-porter-chemise-casablanca.html">
+        <div class="blog-card__media" style="background:var(--color-cream);display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:var(--font-display);font-size:3rem;color:var(--color-muted);">À venir</span>
+        </div>
+        <span class="blog-card__cat">Guide d'achat · 5 min de lecture</span>
+        <h3>Casablanca, Aimé Leon Dore, Wales Bonner : laquelle choisir ?</h3>
+        <p>Comparaison des trois maisons les plus iconiques du luxe contemporain inspiré du sport.</p>
+        <span class="blog-card__meta">À paraître</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="section newsletter">
+    <div class="container-narrow newsletter__inner">
+      <p class="eyebrow">Liste privée</p>
+      <h2>Recevoir nos articles <em class="italic-script">en avant-première</em></h2>
+      <p>Un e-mail tous les 15 jours, le meilleur du journal et l'accès à nos drops avant tout le monde.</p>
+      <form class="newsletter__form" data-newsletter>
+        <input type="email" required placeholder="Votre adresse e-mail" />
+        <button type="submit">S'inscrire →</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Casablanca Store</h3>
+          <p>Revendeur officiel français de la maison Casablanca Paris. Pièces homme expédiées de France, expédition sous 48h.</p>
+        </div>
+        <div class="footer-col"><h5>Acheter</h5><ul><li><a href="../collections/homme.html">Tout l'homme</a></li><li><a href="../collections/nouveautes.html">Nouveautés</a></li><li><a href="../collections/chemises.html">Chemises</a></li></ul></div>
+        <div class="footer-col"><h5>Aide</h5><ul><li><a href="../pages/livraison.html">Livraison</a></li><li><a href="../pages/retours.html">Retours</a></li><li><a href="../pages/contact.html">Contact</a></li></ul></div>
+        <div class="footer-col"><h5>Maison</h5><ul><li><a href="../pages/about.html">À propos</a></li><li><a href="index.html">Journal</a></li></ul></div>
+        <div class="footer-col"><h5>Légal</h5><ul><li><a href="../pages/cgv.html">CGV</a></li><li><a href="../pages/mentions-legales.html">Mentions</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Casablanca Store</span>
+        <div class="pay"><span>Visa</span><span>Mastercard</span><span>PayPal</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="drawer-overlay" data-cart-close></div>
+  <aside class="cart-drawer" aria-label="Panier">
+    <div class="cart-drawer__head"><h3>Votre panier</h3><button class="icon-btn" data-cart-close><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><line x1="4" y1="4" x2="16" y2="16"/><line x1="16" y1="4" x2="4" y2="16"/></svg></button></div>
+    <div class="cart-drawer__body" data-cart-body></div>
+    <div class="cart-drawer__foot"><div class="cart-drawer__total"><span>Sous-total</span><span data-cart-total>0,00 €</span></div><button class="btn btn-primary btn-block" data-checkout disabled>Passer commande →</button></div>
+  </aside>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>
