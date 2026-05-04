@@ -159,6 +159,20 @@
       const found = cart.find(i => i.id === item.id && i.variant === item.variant);
       if (found) found.qty += 1; else cart.push(item);
       setCart(cart);
+      // Google Ads — event add_to_cart
+      if (typeof gtag === 'function') {
+        gtag('event', 'add_to_cart', {
+          currency: 'EUR',
+          value: item.price,
+          items: [{
+            item_id: item.id,
+            item_name: item.title,
+            price: item.price,
+            quantity: 1,
+            item_variant: item.variant || undefined
+          }]
+        });
+      }
       openDrawer();
       return;
     }
@@ -457,6 +471,48 @@
       const card = btn.closest('[data-product]');
       const title = (card?.dataset.title || btn.dataset.title || 'Article').trim();
       setTimeout(() => showToast(`✓ ${title.slice(0, 40)} ajouté au panier`), 100);
+    }
+  });
+
+  /* ---------- Google Ads · events e-commerce automatiques ---------- */
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof gtag !== 'function') return;
+
+    // view_item : page de fiche produit (présence de .product-info[data-product])
+    const productInfo = document.querySelector('.product-info[data-product]');
+    if (productInfo) {
+      const price = parseFloat(productInfo.dataset.price);
+      gtag('event', 'view_item', {
+        currency: 'EUR',
+        value: isFinite(price) ? price : 0,
+        items: [{
+          item_id: productInfo.dataset.id,
+          item_name: productInfo.dataset.title,
+          price: isFinite(price) ? price : 0
+        }]
+      });
+    }
+
+    // begin_checkout : page panier ou checkout
+    const path = window.location.pathname;
+    if (/\/(cart|checkout)\.html$/.test(path)) {
+      try {
+        const cart = JSON.parse(localStorage.getItem('cs_cart_v1')) || [];
+        if (cart.length) {
+          const value = cart.reduce((s, i) => s + i.price * i.qty, 0);
+          gtag('event', 'begin_checkout', {
+            currency: 'EUR',
+            value: parseFloat(value.toFixed(2)),
+            items: cart.map(i => ({
+              item_id: i.id,
+              item_name: i.title,
+              price: i.price,
+              quantity: i.qty,
+              item_variant: i.variant || undefined
+            }))
+          });
+        }
+      } catch (e) {}
     }
   });
 
