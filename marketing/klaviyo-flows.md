@@ -1,4 +1,4 @@
-# Casablanca Store — Flows Klaviyo prêts à mettre en place
+# Casablanca Officiel — Flows Klaviyo prêts à mettre en place
 
 5 flows e-mail essentiels pour récupérer les paniers abandonnés, fidéliser les acheteurs et réactiver les inactifs. **ROI moyen attendu : 25-35 % du chiffre d'affaires e-commerce** vient de l'e-mail.
 
@@ -9,9 +9,9 @@ Tous les e-mails sont rédigés en français, avec sujets, prévisualisations, c
 ## Configuration générale
 
 ### Identité d'expéditeur
-- **Nom** : `Casablanca Store`
-- **E-mail** : `hello@casablancastore.fr` (ou `bonjour@`)
-- **Adresse postale** (mention légale obligatoire) : `Casablanca Store SAS — 14 rue de la Paix, 75002 Paris`
+- **Nom** : `Casablanca Officiel`
+- **E-mail** : `hello@casablancaofficiel.fr` (ou `bonjour@`)
+- **Adresse postale** (mention légale obligatoire) : `Casablanca Officiel SAS — 14 rue de la Paix, 75002 Paris`
 - **Ton de voix** : éditorial, élégant, direct. Tutoiement OU vouvoiement (à choisir, rester cohérent). Recommandation : **vouvoiement** pour un univers luxe.
 
 ### Design template
@@ -20,7 +20,7 @@ Tous les e-mails sont rédigés en français, avec sujets, prévisualisations, c
 - Accent / liens : `#c26849` (terracotta)
 - Police titres : Playfair Display (web-safe fallback : Georgia)
 - Police corps : Inter (fallback : Helvetica, Arial)
-- Logo : "Casablanca Store" en typo serif + sous-titre "Revendeur officiel"
+- Logo : "Casablanca Officiel" en typo serif + sous-titre "Revendeur officiel"
 - Tous les e-mails se terminent par : footer avec lien désinscription, mention légale, liens sociaux
 
 ---
@@ -41,7 +41,7 @@ Tous les e-mails sont rédigés en français, avec sujets, prévisualisations, c
 ```
 Bonjour {{ first_name|default:"" }},
 
-Bienvenue chez Casablanca Store.
+Bienvenue chez Casablanca Officiel.
 
 Vous venez de rejoindre une liste très privée — celle de nos clients
 qui reçoivent les drops avant tout le monde et profitent d'attentions
@@ -55,19 +55,19 @@ Code valable 14 jours, à utiliser au panier sur tout le site.
 → Découvrir la collection homme
 
 Quelques mots sur nous, en deux phrases.
-Casablanca Store est le revendeur officiel français de la maison
+Casablanca Officiel est le revendeur officiel français de la maison
 Casablanca Paris pour Homme. Nos pièces partent de France en 24h,
 dans leur boîte d'origine, avec hangtag et certificat d'authenticité.
 
 À très vite,
-L'équipe Casablanca Store
+L'équipe Casablanca Officiel
 
 PS — Notre service client répond en moins de 4h.
 Une question, un conseil de taille ? Écrivez-nous, on adore.
 ```
 
 **CTA principal** : `Découvrir la collection`
-**Lien** : `https://casablancastore.fr/collections/homme.html`
+**Lien** : `https://casablancaofficiel.fr/collections/homme.html`
 
 ---
 
@@ -101,11 +101,11 @@ pour les amateurs des codes Casa.
 → Voir les 4 coloris disponibles
 
 À demain,
-Casablanca Store
+Casablanca Officiel
 ```
 
 **CTA principal** : `Lire l'article complet`
-**Lien** : `https://casablancastore.fr/blog/comment-porter-chemise-casablanca.html`
+**Lien** : `https://casablancaofficiel.fr/blog/comment-porter-chemise-casablanca.html`
 
 ---
 
@@ -136,13 +136,13 @@ Si vous n'achetez pas aujourd'hui, ce n'est pas grave : on continuera
 laisser passer 65 € sur une chemise iconique.
 
 À ce soir ?
-Casablanca Store
+Casablanca Officiel
 
 PS — Conseil de taille avant de commander ? On répond sous 4h.
 ```
 
 **CTA principal** : `Utiliser MERCI10`
-**Lien** : `https://casablancastore.fr/collections/homme.html`
+**Lien** : `https://casablancaofficiel.fr/collections/homme.html`
 
 ---
 
@@ -175,7 +175,7 @@ Pas de souci, votre panier est conservé. Si vous avez eu un doute
 sur la taille ou la couleur, on est là pour vous conseiller.
 Répondez simplement à cet e-mail, on vous répond sous 4h.
 
-L'équipe Casablanca Store
+L'équipe Casablanca Officiel
 ```
 
 **CTA principal** : `Reprendre mon panier`
@@ -210,7 +210,7 @@ mieux. Cliquez et regardez ce qu'il reste.
 
 → Reprendre mon panier
 
-Casablanca Store
+Casablanca Officiel
 
 PS — Avis clients sur cette pièce :
 "Service ultra rapide, packaging soigné, qualité au rendez-vous." — Antoine M. ★★★★★
@@ -243,7 +243,7 @@ Si ce n'est pas le moment, pas de souci. On garde votre panier
 encore 7 jours, et on continuera à vous envoyer nos drops.
 
 Bonne soirée,
-Casablanca Store
+Casablanca Officiel
 
 PS — Une question de dernière minute ?
 Répondez ici, on est là.
@@ -295,7 +295,7 @@ le sachet protecteur, le certificat d'authenticité Casablanca Paris.
 Une question avant la réception ? Répondez à cet e-mail.
 
 À très vite,
-L'équipe Casablanca Store
+L'équipe Casablanca Officiel
 
 PS — Retours 14 jours offerts si la taille ou la couleur ne convient pas.
 On l'a déjà dit, mais on préfère le redire. Aucun stress.
@@ -329,7 +329,7 @@ Si quelque chose ne va pas (taille, qualité, doute sur l'authenticité),
 on règle ça en priorité — répondez à cet e-mail.
 
 Merci d'être avec nous,
-Casablanca Store
+Casablanca Officiel
 ```
 
 **CTA principal** : `Laisser un avis`
@@ -340,7 +340,7 @@ Casablanca Store
 ### E-mail 3/4 — J+15
 
 **Sujet** : `Comment porter votre {{ first_product.title }}`
-**Preview** : `4 looks pour la faire vivre, signés Casablanca Store.`
+**Preview** : `4 looks pour la faire vivre, signés Casablanca Officiel.`
 
 **Corps**
 ```
@@ -366,7 +366,7 @@ pour aller avec votre {{ first_product.title }} :
 - Short en soie L'Arche · 390 €
 
 À bientôt,
-Casablanca Store
+Casablanca Officiel
 ```
 
 ---
@@ -397,7 +397,7 @@ Quelques pièces sorties depuis votre dernier achat :
 → Voir les nouveautés
 
 Merci d'être avec nous,
-Casablanca Store
+Casablanca Officiel
 
 PS — La saison Beach Club 2026 est sortie. À jeter un œil 🌊
 ```
@@ -420,7 +420,7 @@ PS — La saison Beach Club 2026 est sortie. À jeter un œil 🌊
 ```
 {{ first_name }},
 
-Joyeux anniversaire de la part de toute l'équipe Casablanca Store.
+Joyeux anniversaire de la part de toute l'équipe Casablanca Officiel.
 
 Pour fêter ça à notre manière, voici un code -15 % à utiliser
 sur tout le site, valable 14 jours.
@@ -430,7 +430,7 @@ sur tout le site, valable 14 jours.
 → Vous faire plaisir
 
 Toute l'équipe vous souhaite une excellente journée,
-Casablanca Store
+Casablanca Officiel
 
 PS — Quelques idées qui pourraient vous plaire :
 - La chemise en soie monogramme · pièce signature
@@ -457,7 +457,7 @@ PS — Quelques idées qui pourraient vous plaire :
 {{ first_name|default:"Bonjour" }},
 
 Cela fait quelques mois qu'on s'est pas vus.
-Voici ce qui a changé chez Casablanca Store.
+Voici ce qui a changé chez Casablanca Officiel.
 
 [3 nouveaux best-sellers visuels]
 
@@ -478,7 +478,7 @@ histoire de la maison. À lire avec un café.
 → Lire le journal
 
 Au plaisir de vous revoir,
-Casablanca Store
+Casablanca Officiel
 ```
 
 ---
@@ -502,7 +502,7 @@ Si quelque chose vous tente, c'est le moment.
 
 → Voir la collection
 
-Casablanca Store
+Casablanca Officiel
 
 PS — Si vous ne voulez plus recevoir nos e-mails, on comprend.
 Cliquez ici pour vous désinscrire en un clic.
@@ -538,7 +538,7 @@ Si vous voulez rester, juste un clic suffit.
 Sinon, vous serez automatiquement retiré dans 7 jours.
 Pas de rancune, et merci pour le temps passé.
 
-L'équipe Casablanca Store
+L'équipe Casablanca Officiel
 ```
 
 ---
@@ -552,7 +552,7 @@ L'équipe Casablanca Store
 3. **Créer une "Sender"** (e-mail expéditeur vérifié + adresse postale)
 4. **Importer le template visuel** (Settings → Templates → Brand) :
    - Couleurs : `#f4ede3` background, `#1f1b16` texte, `#c26849` accent
-   - Logo : "Casablanca Store" en SVG ou PNG haute déf
+   - Logo : "Casablanca Officiel" en SVG ou PNG haute déf
    - Footer : adresse postale + désinscription + sociaux
 5. **Créer chaque flow** (Flows → Create Flow → Build your own) :
    - Welcome → trigger "Subscribed to List"
@@ -598,7 +598,7 @@ L'équipe Casablanca Store
 | **Août** | Mid-season sale | "-20 % sur 30 pièces sélectionnées" |
 | **Sept** | Tailoring | "Le pantalon plissé qu'il vous faut" |
 | **Oct-Nov** | Pré-Black Friday | "Liste d'envies · save the date" |
-| **Black Friday** | Promo | "-30 % pendant 48h · Casablanca Store" |
+| **Black Friday** | Promo | "-30 % pendant 48h · Casablanca Officiel" |
 | **Décembre** | Cadeaux | "Offrir Casablanca · 5 idées par budget" |
 | **Janvier** | Soldes | "Soldes officielles -50 %" |
 

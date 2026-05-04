@@ -1,4 +1,4 @@
-# Casablanca Store — Stratégie SEO complète 2026
+# Casablanca Officiel — Stratégie SEO complète 2026
 
 Plan complet pour atteindre la **1ère page Google** sur les mots-clés clés liés à Casablanca Paris en France, capturer le maximum de trafic organique gratuit, et faire de votre site une **autorité reconnue** sur la marque.
 
@@ -77,7 +77,7 @@ Plan complet pour atteindre la **1ère page Google** sur les mots-clés clés li
 ### Homepage
 
 **Title** : `Casablanca Paris Officiel · Revendeur Agréé France · Plus de 500 Pièces` (64 char)
-**Meta description** : `Casablanca Store — revendeur officiel Casablanca Paris en France. T-shirts, chemises soie, polos Tennis Club, mailles. Livraison France offerte, retours 14 jours. Plus de 500 pièces en stock.` (197 char)
+**Meta description** : `Casablanca Officiel — revendeur officiel Casablanca Paris en France. T-shirts, chemises soie, polos Tennis Club, mailles. Livraison France offerte, retours 14 jours. Plus de 500 pièces en stock.` (197 char)
 **H1** : `Casablanca Paris pour Homme` (avec accent italique sur « pour Homme »)
 **Mots-clés densité** :
 - `Casablanca Paris` : 8-12 occurrences
@@ -86,7 +86,7 @@ Plan complet pour atteindre la **1ère page Google** sur les mots-clés clés li
 
 ### Collection page (ex. /collections/chemises.html)
 
-**Title** : `Chemises Casablanca Paris Homme · {N} Pièces · Casablanca Store`
+**Title** : `Chemises Casablanca Paris Homme · {N} Pièces · Casablanca Officiel`
 **Meta description** : `82 chemises officielles Casablanca Paris : soie monogramme, lin, coton cubain. Tailles XS à XXL. Livraison France offerte, expédition sous 48h. Revendeur agréé.`
 **H1** : `Chemises`
 **Contenu SEO** : 200-300 mots de copy descriptif sous la grille produits (déjà partiellement fait dans `/collections/homme.html`)
@@ -240,7 +240,7 @@ Cibles RP (envoyer un kit produit + pitch) :
 
 ## 7. SEO local (si boutique physique)
 
-Si Casablanca Store ouvre une boutique physique à Paris :
+Si Casablanca Officiel ouvre une boutique physique à Paris :
 
 1. **Google My Business** : fiche complète avec horaires, photos, avis
 2. **Schema.org LocalBusiness** sur la home
@@ -256,15 +256,15 @@ Si Casablanca Store ouvre une boutique physique à Paris :
 Si extension Belgique / Suisse / Maroc / international :
 
 1. **Sous-domaines géo** ou répertoires :
-   - `be.casablancastore.fr` ou `casablancastore.fr/be/`
-   - `ch.casablancastore.fr` ou `casablancastore.fr/ch/`
-   - `ma.casablancastore.fr` ou `casablancastore.fr/ma/`
+   - `be.casablancaofficiel.fr` ou `casablancaofficiel.fr/be/`
+   - `ch.casablancaofficiel.fr` ou `casablancaofficiel.fr/ch/`
+   - `ma.casablancaofficiel.fr` ou `casablancaofficiel.fr/ma/`
 2. **Hreflang tags** pour signaler les versions :
    ```html
-   <link rel="alternate" hreflang="fr-FR" href="https://casablancastore.fr/" />
-   <link rel="alternate" hreflang="fr-BE" href="https://casablancastore.fr/be/" />
-   <link rel="alternate" hreflang="fr-CH" href="https://casablancastore.fr/ch/" />
-   <link rel="alternate" hreflang="x-default" href="https://casablancastore.fr/" />
+   <link rel="alternate" hreflang="fr-FR" href="https://casablancaofficiel.fr/" />
+   <link rel="alternate" hreflang="fr-BE" href="https://casablancaofficiel.fr/be/" />
+   <link rel="alternate" hreflang="fr-CH" href="https://casablancaofficiel.fr/ch/" />
+   <link rel="alternate" hreflang="x-default" href="https://casablancaofficiel.fr/" />
    ```
 3. **Domaines TLD** envisageables : `.be`, `.ch`, `.lu`, `.ma` (top tier de référencement local)
 

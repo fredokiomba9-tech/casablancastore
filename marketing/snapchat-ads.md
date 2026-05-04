@@ -1,6 +1,6 @@
-# Casablanca Store — Stratégie Snapchat Ads 2026
+# Casablanca Officiel — Stratégie Snapchat Ads 2026
 
-Plan complet pour lancer **Snapchat Ads** sur `casablancastore.fr`. Snapchat est sous-utilisé par la concurrence luxe française, ce qui rend les CPM 30-40 % moins chers qu'Instagram tout en touchant le **cœur de cible Gen Z + Millennial** (16-34 ans).
+Plan complet pour lancer **Snapchat Ads** sur `casablancaofficiel.fr`. Snapchat est sous-utilisé par la concurrence luxe française, ce qui rend les CPM 30-40 % moins chers qu'Instagram tout en touchant le **cœur de cible Gen Z + Millennial** (16-34 ans).
 
 ---
 
@@ -66,7 +66,7 @@ Snapchat Ads Manager
 ### Catalogue produits
 
 1. Snap Ads Manager → **Catalogues** → nouveau catalogue
-2. **Source** : flux Shopify auto via app (champ `https://casablancastore.fr/products.atom` ou XML)
+2. **Source** : flux Shopify auto via app (champ `https://casablancaofficiel.fr/products.atom` ou XML)
 3. **Mapping des champs** :
    - `id` → SKU produit
    - `title` → Nom complet (max 150 char)
@@ -99,7 +99,7 @@ Snapchat Ads Manager
 - Plan 2 (2s) : sortir la chemise crème Tennis Club Icon, papier de soie qui craque
 - Plan 3 (1s) : détail broderie monogramme « Casa »
 - Plan 4 (2s) : modèle l'enfile face miroir, tournoie
-- Plan 5 (1s) : logo Casablanca Store + URL casablancastore.fr
+- Plan 5 (1s) : logo Casablanca Officiel + URL casablancaofficiel.fr
 - Audio : trend audio Snapchat (jazz lounge ou bossa)
 - Sous-titres : "Casablanca Paris officiel · Expédié de France 48h"
 
@@ -135,7 +135,7 @@ Snapchat Ads Manager
 - Texte plein écran : "Tu fais du XS ? Du XXL ?"
 - Plan rapide 6 mannequins de tailles différentes portant la même chemise
 - "On a TOUTES les tailles XS → XXL"
-- "Casablanca Store · Revendeur officiel"
+- "Casablanca Officiel · Revendeur officiel"
 - Voix-off : "Casablanca, en taille XS à XXL"
 - 10s
 
@@ -166,7 +166,7 @@ Snapchat Ads Manager
 - Plan 1 : photo produit héro (Tennis Club Icon Silk Shirt)
 - Plan 2 : texte plein écran "MERCI10" en gold
 - Plan 3 : "—10 % sur ta première commande"
-- CTA swipe-up : "Profiter du code → casablancastore.fr"
+- CTA swipe-up : "Profiter du code → casablancaofficiel.fr"
 
 #### Créa #2 — « Stock Limité »
 **Brief** :
@@ -180,7 +180,7 @@ Snapchat Ads Manager
   - "Authentique, packaging soigné · Antoine M. ★★★★★"
   - "Service ultra rapide · Karim L. ★★★★★"
   - "47 avis vérifiés"
-- Final : "Casablanca Store · Revendeur officiel"
+- Final : "Casablanca Officiel · Revendeur officiel"
 
 ### Audiences Conversion
 

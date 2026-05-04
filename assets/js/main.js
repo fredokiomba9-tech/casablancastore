@@ -1,5 +1,5 @@
 /* ==========================================================
-   CASABLANCA STORE — main.js
+   CASABLANCA OFFICIEL — main.js
    Header scroll · Mobile menu · Cart drawer · Animations
    ========================================================== */
 

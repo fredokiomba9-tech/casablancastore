@@ -11,7 +11,7 @@ Disallow: /*?page=
 Disallow: /*?filter=
 
 # Sitemap
-Sitemap: https://casablancastore.fr/sitemap.xml
+Sitemap: https://casablancaofficiel.fr/sitemap.xml
 
 # Crawl-delay raisonnable (optionnel)
 Crawl-delay: 1

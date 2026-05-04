@@ -1,6 +1,6 @@
-# Casablanca Store — Stratégie Google Ads 2026
+# Casablanca Officiel — Stratégie Google Ads 2026
 
-Plan complet pour amener un **maximum de trafic qualifié** sur `casablancastore.fr` via Google Ads. Conçu pour un budget de 20–30 €/jour, scalable à 100 €/jour une fois les ROAS validés.
+Plan complet pour amener un **maximum de trafic qualifié** sur `casablancaofficiel.fr` via Google Ads. Conçu pour un budget de 20–30 €/jour, scalable à 100 €/jour une fois les ROAS validés.
 
 ---
 
@@ -95,7 +95,7 @@ Compte Google Ads
 6. Drop SS26 Disponible
 7. Chemises Soie · Polos · Maille
 8. Expédition sous 48h
-9. Casablanca Store Paris
+9. Casablanca Officiel Paris
 10. -10% Première Commande
 11. Stock Limité · Édition
 12. 47 Avis 5 Étoiles Vérifiés
@@ -179,7 +179,7 @@ Compte Google Ads
 2. Tennis Club Icon, Souvenir, Studio De Musique · Authentique · Expédié sous 48h
 3. Chemises Soie Casablanca Paris · Pièces Officielles · Livraison France Offerte
 4. Revendeur Officiel · Boîte d'Origine · Hangtag · Certificat d'Authenticité Inclus
-5. Casablanca Store · La Plus Grande Sélection Casablanca Paris en France
+5. Casablanca Officiel · La Plus Grande Sélection Casablanca Paris en France
 ```
 
 ### Descriptions (5 max, 90 caractères)
@@ -207,7 +207,7 @@ Compte Google Ads
 - 5 images vertical 1080×1920 (portrait modèles)
 - 1 vidéo 16:9 30s (montage produit + lifestyle, voiceover ou sous-titres)
 - 1 vidéo 9:16 15s (mobile portrait, focus produit unique)
-- Logo Casablanca Store (versions horizontal + carré)
+- Logo Casablanca Officiel (versions horizontal + carré)
 
 ---
 
@@ -217,7 +217,7 @@ Compte Google Ads
 
 ### Setup Google Merchant Center
 
-1. **Vérification de domaine** : Google Search Console → ajouter `casablancastore.fr`
+1. **Vérification de domaine** : Google Search Console → ajouter `casablancaofficiel.fr`
 2. **Connexion Shopify** : app Google & YouTube (gratuite) → auto-sync du flux produits
 3. **Vérification du flux** : tous les produits doivent avoir :
    - Image principale (CDN)

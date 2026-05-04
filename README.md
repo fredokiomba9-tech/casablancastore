@@ -1,13 +1,13 @@
-# Casablanca Store — Guide de mise en ligne et de lancement
+# Casablanca Officiel — Guide de mise en ligne et de lancement
 
-Bienvenue. Ce dossier contient un **prototype statique** complet (HTML/CSS/JS) du site casablancastore.fr inspiré du thème **Prestige Shopify**, avec **570 produits Casablanca Paris officiels** consolidés depuis 15 fichiers CSV d'export Shopify.
+Bienvenue. Ce dossier contient un **prototype statique** complet (HTML/CSS/JS) du site casablancaofficiel.fr inspiré du thème **Prestige Shopify**, avec **570 produits Casablanca Paris officiels** consolidés depuis 15 fichiers CSV d'export Shopify.
 
 ---
 
 ## 1. Aperçu du projet
 
 ```
-casablancastore/                  (613 fichiers, ~15 MB)
+casablancaofficiel/                  (613 fichiers, ~15 MB)
 ├── index.html                    Homepage (4 bannières, 8 gammes, best-sellers, journal, engagements)
 ├── cart.html · checkout.html     Panier complet + tunnel de commande démo
 ├── collections/                  9 pages de gammes
@@ -38,7 +38,7 @@ casablancastore/                  (613 fichiers, ~15 MB)
 ### Visualiser le prototype
 
 ```bash
-cd /Users/user/casablancastore
+cd /Users/user/casablancaofficiel
 python3 -m http.server 8080
 # Ouvrir http://localhost:8080
 ```
@@ -136,7 +136,7 @@ Voir `marketing/ads-creatives.md` pour briefs Meta/Google/TikTok et `marketing/k
 - [ ] **Setup Shopify Payments** + PayPal
 - [ ] **Tracking** : Meta Pixel + GA4 + Google Ads (consent gating prêt dans le bandeau cookies)
 - [ ] **Klaviyo** : importer les 5 flows depuis `marketing/klaviyo-flows.md`
-- [ ] **Domaine** : connecter casablancastore.fr aux DNS Shopify
+- [ ] **Domaine** : connecter casablancaofficiel.fr aux DNS Shopify
 
 ---
 

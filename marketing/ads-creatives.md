@@ -1,4 +1,4 @@
-# Casablanca Store — Créas publicitaires prêtes à utiliser
+# Casablanca Officiel — Créas publicitaires prêtes à utiliser
 
 Toutes les créas sont en français, conformes aux best practices 2026 (post-iOS, post-Performance Max). Format prêt à copier-coller dans Meta Ads Manager, Google Ads ou TikTok Ads.
 
@@ -47,7 +47,7 @@ Découvrez la collection homme — Paiement sécurisé.
 **Headline (titre)** : `La chemise Casablanca, livrée chez vous`
 **Description** : `Revendeur officiel · Livraison France offerte`
 **CTA** : `Acheter`
-**Lien** : `casablancastore.fr/collections/homme.html`
+**Lien** : `casablancaofficiel.fr/collections/homme.html`
 
 ---
 
@@ -77,7 +77,7 @@ Trouvez la vôtre →
 
 **Headline** : `5 looks · 1 chemise iconique`
 **CTA** : `Voir la collection`
-**Lien** : `casablancastore.fr/blog/comment-porter-chemise-casablanca.html`
+**Lien** : `casablancaofficiel.fr/blog/comment-porter-chemise-casablanca.html`
 
 ---
 
@@ -85,7 +85,7 @@ Trouvez la vôtre →
 **Brief**
 - Split screen : à gauche, chemise sur cintre ; à droite, chemise portée par modèle au bord d'une piscine
 - Overlay texte : `650 €`
-- Logo Casablanca Store en bas à droite, discret
+- Logo Casablanca Officiel en bas à droite, discret
 
 **Texte principal**
 ```
@@ -127,7 +127,7 @@ Ta première Casa t'attend →
 #### Visuel 5 — Témoignage client (UGC)
 **Brief**
 - Vrai client filme à la première personne
-- "J'ai reçu ma commande hier de chez @casablancastore, je l'ai ouverte ce matin avant d'aller au boulot. Voilà ce que ça donne."
+- "J'ai reçu ma commande hier de chez @casablancaofficiel, je l'ai ouverte ce matin avant d'aller au boulot. Voilà ce que ça donne."
 - Montre packaging, hangtag, étiquette, puis le porte
 - 30s max
 - Pas de filtre, lumière naturelle
@@ -235,7 +235,7 @@ Pour finaliser, code MERCI10 → -10 % ce soir uniquement.
 1. Casablanca Paris pour Homme · Revendeur Officiel France · Expédition sous 48h Offerte
 2. Chemises en Soie, Polos Tennis Club, Mailles · Casablanca Authentique · Expédié de France
 3. Toute la Collection Homme Casablanca Paris · Authentifié · Livraison gratuite sans minimum
-4. Casablanca Store · Revendeur Officiel · 47 Avis 5 Étoiles · Authenticité Garantie
+4. Casablanca Officiel · Revendeur Officiel · 47 Avis 5 Étoiles · Authenticité Garantie
 5. Pièces Officielles Casablanca Paris · Boîte d'Origine · Hangtag · Certificat Inclus
 ```
 
@@ -308,7 +308,7 @@ Headlines :
 5. Authenticité 100% Garantie
 6. Paiement 3× Sans Frais
 7. Drop SS26 Disponible
-8. Casablanca Store Paris
+8. Casablanca Officiel Paris
 ```
 
 Descriptions :
@@ -317,7 +317,7 @@ Descriptions :
 2. 47 avis 5 étoiles vérifiés. Boîte d'origine + hangtag + certificat. Retours 14 jours.
 ```
 
-URL d'affichage : `casablancastore.fr/casablanca-paris-officiel`
+URL d'affichage : `casablancaofficiel.fr/casablanca-paris-officiel`
 
 ---
 
@@ -394,7 +394,7 @@ Lien en bio · paiement sécurisé 🌴
 - Plan détail : tag intérieur, qualité du tissu, finition broderie, hangtag avec QR code
 - "Scanné ce QR → confirmation directe Casablanca Paris"
 - Final : "Plus simple : passer par un revendeur officiel"
-- CTA : "Casablanca Store · lien en bio"
+- CTA : "Casablanca Officiel · lien en bio"
 
 **Description**
 ```
@@ -417,7 +417,7 @@ Lien en bio.
 - Chaque plan = un look complet (les 5 décrits dans l'article blog)
 - Légende dans chaque plan : "Brunch", "Tennis", "Soirée", "Plage", "Mariage"
 - Audio : track énergique mais classy (Daft Punk-style)
-- Texte final : "Toute la collection · Casablanca Store"
+- Texte final : "Toute la collection · Casablanca Officiel"
 
 ---
 
@@ -469,7 +469,7 @@ Pour produire les créas vous-même (recommandé en early stage) :
 ### Brief type pour un freelance UGC
 
 ```
-Brief — Vidéo UGC Casablanca Store
+Brief — Vidéo UGC Casablanca Officiel
 Format : 9:16, durée 15-30s
 Style : authentique, peu produit, voix-off naturelle
 Lieu : intérieur lumineux, café ou appartement parisien
