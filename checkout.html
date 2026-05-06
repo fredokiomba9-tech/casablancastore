@@ -549,27 +549,37 @@
       form.addEventListener('submit', (e) => {
         e.preventDefault();
         const data = new FormData(form);
-        const firstname = data.get('firstname') || 'cher client';
-        const email = data.get('email') || '';
+        const firstname = (data.get('firstname') || '').toString().trim() || 'cher client';
+        const email = (data.get('email') || '').toString().trim();
 
-        // Confirm view
-        document.getElementById('checkout-form').style.display = 'none';
-        document.getElementById('confirmation-view').style.display = 'block';
-        document.getElementById('conf-firstname').textContent = firstname;
-        document.getElementById('conf-email').textContent = email;
-        document.getElementById('conf-order-num').textContent = '#CASA-' + String(Date.now()).slice(-6);
-        // Stepper update
-        document.querySelectorAll('.stepper__step').forEach((s, i) => {
-          s.classList.remove('is-active');
-          s.classList.add('is-done');
-        });
-        document.querySelector('.stepper__step:last-child').classList.remove('is-done');
-        document.querySelector('.stepper__step:last-child').classList.add('is-active');
+        // Récupère le total et le panier au moment de la commande
+        const cartSnapshot = JSON.parse(localStorage.getItem(CART_KEY) || '[]');
+        const subtotal = cartSnapshot.reduce((s,i)=>s+i.price*i.qty, 0);
+        const promo = JSON.parse(localStorage.getItem(PROMO_KEY) || 'null');
+        const discount = promo ? subtotal * (promo.pct/100) : 0;
+        const shipMethod = document.querySelector('input[name="shipping"]:checked');
+        const shippingCost = shipMethod ? parseFloat(shipMethod.dataset.cost) : 0;
+        const total = Math.max(0, subtotal - discount + shippingCost);
+        const orderNum = 'CASA-' + String(Date.now()).slice(-6);
 
-        // Reset cart (le client a "commandé")
+        // Stocke les détails pour la page de remerciement (et l'event de conversion gtag)
+        sessionStorage.setItem('cs_last_order', JSON.stringify({
+          id: orderNum,
+          firstname: firstname,
+          email: email,
+          total: parseFloat(total.toFixed(2)),
+          currency: 'EUR',
+          items: cartSnapshot.map(i => ({
+            id: i.id, title: i.title, price: i.price, quantity: i.qty, variant: i.variant
+          }))
+        }));
+
+        // Reset panier — le client a commandé
         localStorage.removeItem(CART_KEY);
         localStorage.removeItem(PROMO_KEY);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // Redirige vers /pages/merci.html — c'est cette URL qui déclenche la conversion Google Ads
+        window.location.href = 'pages/merci.html';
       });
     })();
   </script>

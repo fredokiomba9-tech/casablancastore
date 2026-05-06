@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Merci pour votre commande · Casablanca Officiel</title>
+  <meta name="description" content="Votre commande Casablanca Officiel est confirmée. Préparation et expédition sous 48h depuis la France." />
+  <link rel="canonical" href="https://casablancaofficiel.com/pages/merci.html" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+
+<!-- Google tag (gtag.js) - Casablanca Officiel -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18129862687"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18129862687');
+</script>
+
+  <style>
+    .thanks-page { padding: calc(var(--header-h) + 3rem) 0 4rem; min-height: 60vh; min-height: 60dvh; }
+    .thanks-card {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+      padding: clamp(1.5rem, 4vw, 3rem);
+    }
+    .thanks-check {
+      width: 84px; height: 84px;
+      border-radius: 50%;
+      background: var(--color-cream);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-5);
+    }
+    .thanks-check svg { width: 36px; height: 36px; stroke: var(--color-success); stroke-width: 2; fill: none; }
+    .thanks-card .eyebrow { color: var(--color-success); margin-bottom: var(--space-3); }
+    .thanks-card h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3rem); font-weight: 400; margin-bottom: var(--space-4); }
+    .thanks-card h1 em { font-style: italic; color: var(--color-gold); }
+    .thanks-card .lead { color: var(--color-ink-soft); font-size: 1.0625rem; margin-bottom: var(--space-6); line-height: 1.7; }
+    .thanks-summary {
+      background: var(--color-cream);
+      padding: var(--space-5);
+      margin: var(--space-6) 0;
+      text-align: left;
+    }
+    .thanks-summary__line { display: flex; justify-content: space-between; padding: 8px 0; font-size: var(--fs-sm); }
+    .thanks-summary__line strong { font-weight: 600; }
+    .thanks-summary__total { display: flex; justify-content: space-between; align-items: baseline; padding-top: var(--space-3); margin-top: var(--space-3); border-top: 1px solid var(--color-line-strong); font-family: var(--font-display); font-size: 1.5rem; font-weight: 500; }
+    .thanks-actions { display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap; margin-top: var(--space-6); }
+    .thanks-actions .btn { min-height: 48px; }
+    .thanks-next {
+      margin-top: var(--space-7);
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--color-line);
+      text-align: left;
+    }
+    .thanks-next h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 500; margin-bottom: var(--space-3); }
+    .thanks-next ol { padding-left: 1.25rem; color: var(--color-ink-soft); font-size: 0.95rem; line-height: 1.8; }
+    .thanks-next li { margin-bottom: 6px; }
+    @media (max-width: 600px) {
+      .thanks-page { padding-top: calc(var(--header-h) + 1.5rem); }
+      .thanks-card .lead { font-size: 0.95rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a class="brand" href="../index.html">Casablanca<span>Store · Revendeur officiel</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container thanks-page">
+    <div class="thanks-card">
+
+      <div class="thanks-check">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12l4 4 10-10" />
+        </svg>
+      </div>
+
+      <p class="eyebrow">Commande confirmée</p>
+      <h1>Merci <em id="conf-name">pour votre commande</em></h1>
+
+      <p class="lead">
+        Votre commande <strong id="conf-num">#CASA-XXXXXX</strong> est confirmée.
+        Un e-mail de confirmation a été envoyé à <strong id="conf-email">votre adresse</strong>.
+        Préparation et expédition sous 48h depuis la France.
+      </p>
+
+      <div class="thanks-summary">
+        <div class="thanks-summary__line"><span>Numéro de commande</span><strong id="sum-num">—</strong></div>
+        <div class="thanks-summary__line"><span>Email</span><strong id="sum-email">—</strong></div>
+        <div class="thanks-summary__line"><span>Articles</span><strong id="sum-items">—</strong></div>
+        <div class="thanks-summary__line"><span>Livraison</span><strong>Offerte (sans minimum)</strong></div>
+        <div class="thanks-summary__total"><span>Total payé</span><strong id="sum-total">0,00 €</strong></div>
+      </div>
+
+      <div class="thanks-actions">
+        <a href="../index.html" class="btn btn-primary">Retour à l'accueil</a>
+        <a href="../collections/best-sellers.html" class="btn btn-secondary">Voir les best-sellers</a>
+      </div>
+
+      <div class="thanks-next">
+        <h3>Et maintenant ?</h3>
+        <ol>
+          <li><strong>Sous 24 h :</strong> nous préparons votre commande dans nos entrepôts français.</li>
+          <li><strong>Sous 48 h :</strong> expédition Colissimo Suivi (offerte) avec numéro de tracking par email.</li>
+          <li><strong>2 à 3 jours ouvrés :</strong> livraison à votre porte. Hangtag, boîte d'origine et certificat d'authenticité fournis.</li>
+          <li><strong>Pas satisfait ?</strong> Retours sous 14 jours via étiquette pré-payée gratuite.</li>
+        </ol>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom"><span>© 2026 Casablanca Officiel · Revendeur officiel · France</span></div>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    // Récupère les détails depuis sessionStorage (déposés par checkout.html)
+    let order = {};
+    try { order = JSON.parse(sessionStorage.getItem('cs_last_order') || '{}'); } catch(e) {}
+
+    const fmt = n => new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR'}).format(n||0);
+    const orderNum = order.id || ('CASA-' + String(Date.now()).slice(-6));
+    const fullNum = '#' + orderNum;
+    const email = order.email || '—';
+    const firstname = order.firstname || 'pour votre commande';
+    const total = parseFloat(order.total || 0);
+    const items = order.items || [];
+
+    document.getElementById('conf-num').textContent = fullNum;
+    document.getElementById('sum-num').textContent = fullNum;
+    document.getElementById('conf-email').textContent = email;
+    document.getElementById('sum-email').textContent = email;
+    document.getElementById('conf-name').textContent = firstname !== 'pour votre commande' ? firstname : 'pour votre commande';
+    document.getElementById('sum-total').textContent = fmt(total);
+    const itemsCount = items.reduce((s,i)=>s+(i.quantity||i.qty||1),0) || 0;
+    document.getElementById('sum-items').textContent = itemsCount + (itemsCount > 1 ? ' articles' : ' article');
+
+    // Google Ads — événement de conversion (purchase)
+    if (typeof gtag === 'function') {
+      // 1) Conversion Google Ads (au niveau du compte — fonctionne avec la conversion URL-based)
+      gtag('event', 'conversion', {
+        send_to: 'AW-18129862687',
+        value: total,
+        currency: 'EUR',
+        transaction_id: orderNum
+      });
+      // 2) Achat e-commerce (GA4 / Enhanced Conversions)
+      gtag('event', 'purchase', {
+        transaction_id: orderNum,
+        value: total,
+        currency: 'EUR',
+        shipping: 0,
+        items: items.map(i => ({
+          item_id: i.id || i.item_id,
+          item_name: i.title || i.item_name,
+          price: i.price,
+          quantity: i.quantity || i.qty || 1,
+          item_variant: i.variant || i.item_variant || undefined
+        }))
+      });
+    }
+
+    // Vide la session — la commande ne doit pas être re-déclenchée si l'utilisateur recharge
+    sessionStorage.removeItem('cs_last_order');
+  })();
+  </script>
+
+</body>
+</html>
