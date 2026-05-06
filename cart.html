@@ -192,8 +192,69 @@
     .empty-cart p { color: var(--color-ink-soft); margin-bottom: var(--space-6); }
 
     @media (max-width: 600px) {
-      .cart-item { grid-template-columns: 90px 1fr; gap: var(--space-3); }
+      .cart-item { grid-template-columns: 90px 1fr; gap: var(--space-3); padding: var(--space-3) 0; }
+      .cart-item__media { aspect-ratio: 1/1; }
       .cart-item__price-line { grid-column: 2; align-items: flex-start; text-align: left; flex-direction: row; justify-content: space-between; width: 100%; }
+    }
+    @media (max-width: 768px) {
+      .cart-page { padding: calc(var(--header-h) + 1rem) 0 110px; }
+      .cart-page__head { margin-bottom: var(--space-4); text-align: left; }
+      .cart-page__head .eyebrow { font-size: 10px; margin-bottom: 4px; }
+      .cart-page__head h1 { font-size: 1.75rem; margin-bottom: 0; }
+      .cart-page__head p { display: none; }
+      .cart-summary { padding: 1.25rem; }
+      .cart-summary h2 { font-size: 1.125rem; margin-bottom: var(--space-3); }
+      .cart-summary__total { font-size: 1.5rem; margin-bottom: var(--space-2); }
+      .cart-summary__pay { display: none; }
+      .cart-trust { display: none; }
+      .cart-actions { padding: var(--space-3) 0; }
+      .promo-row { padding: var(--space-3) 0; margin-bottom: var(--space-2); }
+      #checkout-btn { font-size: 0.875rem; min-height: 48px; }
+    }
+    /* Sticky bottom CTA on mobile — keeps "Passer commande" always 1 tap away */
+    .cart-sticky-cta {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      .cart-sticky-cta {
+        display: flex;
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        background: var(--color-bg);
+        border-top: 1px solid var(--color-line);
+        padding: 10px var(--gutter);
+        padding-bottom: max(10px, env(safe-area-inset-bottom));
+        z-index: 50;
+        align-items: center;
+        gap: 12px;
+        box-shadow: 0 -8px 24px rgba(20,17,13,0.08);
+      }
+      .cart-sticky-cta__total { flex: 0 0 auto; line-height: 1.1; min-width: 80px; }
+      .cart-sticky-cta__total .lbl {
+        font-size: 10px;
+        color: var(--color-muted);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-weight: 600;
+        display: block;
+        margin-bottom: 2px;
+      }
+      .cart-sticky-cta__total .val {
+        font-family: var(--font-display);
+        font-size: 1.125rem;
+        font-weight: 500;
+        color: var(--color-ink);
+      }
+      .cart-sticky-cta .btn {
+        flex: 1;
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.875rem;
+      }
+      /* Hide on the empty-state screen */
+      body.cart-empty .cart-sticky-cta { display: none; }
     }
   </style>
 <!-- Google tag (gtag.js) - Casablanca Officiel -->
@@ -285,6 +346,7 @@
         <div id="promo-msg" class="promo-msg" style="display:none;"></div>
 
         <a href="checkout.html" class="btn btn-primary btn-block" id="checkout-btn">Passer commande →</a>
+        <p style="text-align:center;font-size:11px;color:var(--color-muted);letter-spacing:.12em;text-transform:uppercase;margin-top:var(--space-3);">Paiement sécurisé · 3D Secure</p>
 
         <div class="cart-summary__pay">
           <span>Visa</span><span>Mastercard</span><span>Amex</span><span>PayPal</span><span>Apple Pay</span>
@@ -299,6 +361,15 @@
       </aside>
     </div>
   </main>
+
+  <!-- Sticky bottom CTA mobile -->
+  <div class="cart-sticky-cta" id="cart-sticky-cta">
+    <div class="cart-sticky-cta__total">
+      <span class="lbl">Total</span>
+      <span class="val" data-cart-sticky-total>0,00 €</span>
+    </div>
+    <a href="checkout.html" class="btn btn-primary">Passer commande →</a>
+  </div>
 
   <footer class="site-footer">
     <div class="container">
@@ -403,6 +474,9 @@
 
         const total = Math.max(0, subtotal - discount);
         document.querySelector('[data-cart-page-total]').textContent = fmt(total);
+        const stickyTotal = document.querySelector('[data-cart-sticky-total]');
+        if (stickyTotal) stickyTotal.textContent = fmt(total);
+        document.body.classList.toggle('cart-empty', cart.length === 0);
         };
 
       // Listeners
